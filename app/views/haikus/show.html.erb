@@ -1,0 +1,34 @@
+<p>
+  <b>Poet:</b>
+  <%=h @haiku.poet %>
+</p>
+
+<p>
+  <b>Line1:</b>
+  <%=h @haiku.line1 %>
+</p>
+
+<p>
+  <b>Line2:</b>
+  <%=h @haiku.line2 %>
+</p>
+
+<p>
+  <b>Line3:</b>
+  <%=h @haiku.line3 %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%=h @haiku.email %>
+</p>
+
+<p>
+  <b>Movie:</b>
+  <%=h @haiku.movie %>
+</p>
+
+
+<%= link_to 'Edit', edit_haiku_path(@haiku) %> |
+<%= link_to 'Back', haikus_path %>
+<%= link_to 'Home', :controller=>"home"%>

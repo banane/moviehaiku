@@ -1,0 +1,37 @@
+<h1>New Haiku</h1>
+
+<% form_for(@haiku) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :poet %><br />
+    <%= f.text_field :poet %>
+  </p>
+  <p>
+    Line 1: (7 syllables)<br />
+    <%= f.text_field :line1 %>
+  </p>
+  <p>
+    Line 2: (5 syllables)<br />
+    <%= f.text_field :line2 %>
+  </p>
+  <p>
+    Line 3: (7 syllables, reflection on earlier 2 lines)
+	<br />
+    <%= f.text_field :line3 %>
+  </p>
+  <p>
+    <%= f.label :email %> (will not be displayed)<br />
+    <%= f.text_field :email %>
+  </p>
+  <p>
+    <%= f.label :movie %><br />
+    <%= f.text_field :movie %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', haikus_path %>
+<%= link_to 'Home', :controller => 'home' %>

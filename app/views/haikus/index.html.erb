@@ -1,0 +1,31 @@
+<h1>Haikus</h1>
+
+<table border=1 cellpadding=5>
+  <tr>
+    <th>Poet</th>
+    <th>Haikus</th> 
+    <th>Movie</th>
+   <th> Actions</th>
+
+ </tr>
+
+<% @haikus.each do |haiku| %>
+  <tr>
+    <td align="top"><%=h haiku.poet %></td>
+    <td><%=h haiku.line1 %>
+    <br><%=h haiku.line2 %>
+    <br><%=h haiku.line3 %>
+</td>
+
+    <td><%=h haiku.movie %></td>
+   <td>
+   <%= link_to 'Edit', edit_haiku_path(haiku) %>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New haiku', new_haiku_path %>
+<%= link_to 'Home', :controller => 'home' %>
