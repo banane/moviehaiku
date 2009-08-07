@@ -213,7 +213,7 @@
           <h1><%= link_to "Read 'em", :controller=> "haikus" %> </h1>
           <h1><%= link_to "Write 'em", :controller=>"haikus", :action => "new" %></h1>
        <br>
-          <h1><%= link_to "Movies", :controller=> "haikus", :action => "show_movies" %></h1>
+          <h1>Movies</h1>
          	<ul>
               <% 
                @haikus = Haiku.all(:order => "movie DESC", :group => "movie", :limit => 10)
@@ -223,7 +223,7 @@
   			<% end %>
   			<li><%= link_to "... more", :controller=>"haikus" %></li>
   			</ul>
-          <h1><%= link_to "Poets", :controller=> "haikus", :action => "show_poets" %></h1>
+          <h1>Poets</h1>
           	<ul>
           	<% 
           		@haikus = Haiku.all(:order => "poet DESC", :group => "poet", :limit => 10)
