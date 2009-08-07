@@ -215,23 +215,16 @@
        <br>
           <h1>Movies</h1>
          	<ul>
-              <% 
-               @haikus = Haiku.all(:order => "movie DESC", :group => "movie", :limit => 10)
-               @haikus.each do |haiku| %>
-               <li><%=h haiku.movie %></li>
+              </li>
   			
-  			<% end %>
+  			
   			<li><%= link_to "... more", :controller=>"haikus" %></li>
   			</ul>
           <h1>Poets</h1>
           	<ul>
-          	<% 
-          		@haikus = Haiku.all(:order => "poet DESC", :group => "poet", :limit => 10)
-          		@haikus.each do |haiku| %>
-          		<li><%= link_to haiku.poet, :controller => "haikus" %>
-          		<% end %>
+          	
           		<li><%= link_to "... more", :controller=>"haikus" %>
-          		</ul>
+          	</ul>
           		
         </div>
       </div>
