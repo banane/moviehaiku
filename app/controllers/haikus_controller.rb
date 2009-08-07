@@ -10,22 +10,8 @@ class HaikusController < ApplicationController
     end
   end
 
-  def show_movies
-     @haikus = Haiku.all(:order => "movie DESC", :group => "movie")
-
-     respond_to do |format|
-        format.html # show_movies.html.erb
-        format.xml { render :xml => @haikus } 
-     end 
-  end
-
-  def show_poets
-     @haikus = Haiku.all(:order => "poet DESC", :group => "poet")
-     respond_to do |format|
-         format.html # show_poets.html.erb
-         format.xml { render :xml => @haikus } 
-     end 
-  end
+  
+ 
 
   # GET /haikus/1
   # GET /haikus/1.xml

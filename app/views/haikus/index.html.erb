@@ -1,31 +1,23 @@
-<h1>Haikus</h1>
+<h1>Read 'Em</h1>
+</div>
 
-<table border=1 cellpadding=5>
-  <tr>
-    <th>Poet</th>
-    <th>Haikus</th> 
-    <th>Movie</th>
-   <th> Actions</th>
-
- </tr>
+  <div id="getting-started">
 
 <% @haikus.each do |haiku| %>
-  <tr>
-    <td align="top"><%=h haiku.poet %></td>
-    <td><%=h haiku.line1 %>
-    <br><%=h haiku.line2 %>
-    <br><%=h haiku.line3 %>
-</td>
+ 	
+ 	<h2><%=h haiku.movie%></h2>
+ 	 by <%=h haiku.poet %><br>
+    <blockquote>
+    <%=h haiku.line1 %><br />
+    <%=h haiku.line2 %><br />
+    <%=h haiku.line3 %><br />
+    </blockquote>
 
-    <td><%=h haiku.movie %></td>
-   <td>
-   <%= link_to 'Edit', edit_haiku_path(haiku) %>
-    </td>
-  </tr>
 <% end %>
-</table>
 
 <br />
 
 <%= link_to 'New haiku', new_haiku_path %>
 <%= link_to 'Home', :controller => 'home' %>
+
+</div>

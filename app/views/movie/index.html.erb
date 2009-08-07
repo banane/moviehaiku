@@ -1,0 +1,9 @@
+<html>
+<body>
+<ul>
+<%   @haikus.each do |haiku| %>
+     <li><%= link_to haiku.movie, :controller=>"movies", :action=>"show", :id => haiku.movie %> </li>
+   <% end %>
+</ul>
+</body>
+</html> 
