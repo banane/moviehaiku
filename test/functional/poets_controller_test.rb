@@ -12,15 +12,15 @@ class PoetsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should create poets" do
-    assert_difference('Poets.count') do
-      post :create, :poets => { }
+  test "should create poet" do
+    assert_difference('Poet.count') do
+      post :create, :poet => { }
     end
 
-    assert_redirected_to poets_path(assigns(:poets))
+    assert_redirected_to poet_path(assigns(:poet))
   end
 
-  test "should show poets" do
+  test "should show poet" do
     get :show, :id => poets(:one).to_param
     assert_response :success
   end
@@ -30,13 +30,13 @@ class PoetsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should update poets" do
-    put :update, :id => poets(:one).to_param, :poets => { }
-    assert_redirected_to poets_path(assigns(:poets))
+  test "should update poet" do
+    put :update, :id => poets(:one).to_param, :poet => { }
+    assert_redirected_to poet_path(assigns(:poet))
   end
 
-  test "should destroy poets" do
-    assert_difference('Poets.count', -1) do
+  test "should destroy poet" do
+    assert_difference('Poet.count', -1) do
       delete :destroy, :id => poets(:one).to_param
     end
 

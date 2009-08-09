@@ -1,23 +1,23 @@
 <p>
   <b>Name:</b>
-  <%=h @movies.name %>
+  <%=h @movie.name %>
 </p>
 
 <p>
   <b>Year:</b>
-  <%=h @movies.year %>
+  <%=h @movie.year %>
 </p>
 
 <p>
   <b>Imdb url:</b>
-  <%=h @movies.imdb_url %>
+  <%=h @movie.imdb_url %>
 </p>
 
 <p>
   <b>Img url:</b>
-  <%=h @movies.img_url %>
+  <%=h @movie.img_url %>
 </p>
 
 
-<%= link_to 'Edit', edit_movies_path(@movies) %> |
+<%= link_to 'Edit', edit_movie_path(@movie) %> |
 <%= link_to 'Back', movies_path %>

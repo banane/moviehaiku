@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090809022727) do
+ActiveRecord::Schema.define(:version => 20090809025518) do
 
   create_table "haikus", :force => true do |t|
     t.string   "poet"
@@ -17,7 +17,6 @@ ActiveRecord::Schema.define(:version => 20090809022727) do
     t.string   "line2"
     t.string   "line3"
     t.string   "email"
-    t.string   "movie"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

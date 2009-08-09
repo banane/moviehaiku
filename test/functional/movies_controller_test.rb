@@ -12,15 +12,15 @@ class MoviesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should create movies" do
-    assert_difference('Movies.count') do
-      post :create, :movies => { }
+  test "should create movie" do
+    assert_difference('Movie.count') do
+      post :create, :movie => { }
     end
 
-    assert_redirected_to movies_path(assigns(:movies))
+    assert_redirected_to movie_path(assigns(:movie))
   end
 
-  test "should show movies" do
+  test "should show movie" do
     get :show, :id => movies(:one).to_param
     assert_response :success
   end
@@ -30,13 +30,13 @@ class MoviesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should update movies" do
-    put :update, :id => movies(:one).to_param, :movies => { }
-    assert_redirected_to movies_path(assigns(:movies))
+  test "should update movie" do
+    put :update, :id => movies(:one).to_param, :movie => { }
+    assert_redirected_to movie_path(assigns(:movie))
   end
 
-  test "should destroy movies" do
-    assert_difference('Movies.count', -1) do
+  test "should destroy movie" do
+    assert_difference('Movie.count', -1) do
       delete :destroy, :id => movies(:one).to_param
     end
 

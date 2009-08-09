@@ -2,7 +2,7 @@ class PoetsController < ApplicationController
   # GET /poets
   # GET /poets.xml
   def index
-    @poets = Poets.all
+    @poets = Poet.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,43 +13,43 @@ class PoetsController < ApplicationController
   # GET /poets/1
   # GET /poets/1.xml
   def show
-    @poets = Poets.find(params[:id])
+    @poet = Poet.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml => @poets }
+      format.xml  { render :xml => @poet }
     end
   end
 
   # GET /poets/new
   # GET /poets/new.xml
   def new
-    @poets = Poets.new
+    @poet = Poet.new
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml => @poets }
+      format.xml  { render :xml => @poet }
     end
   end
 
   # GET /poets/1/edit
   def edit
-    @poets = Poets.find(params[:id])
+    @poet = Poet.find(params[:id])
   end
 
   # POST /poets
   # POST /poets.xml
   def create
-    @poets = Poets.new(params[:poets])
+    @poet = Poet.new(params[:poet])
 
     respond_to do |format|
-      if @poets.save
-        flash[:notice] = 'Poets was successfully created.'
-        format.html { redirect_to(@poets) }
-        format.xml  { render :xml => @poets, :status => :created, :location => @poets }
+      if @poet.save
+        flash[:notice] = 'Poet was successfully created.'
+        format.html { redirect_to(@poet) }
+        format.xml  { render :xml => @poet, :status => :created, :location => @poet }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @poets.errors, :status => :unprocessable_entity }
+        format.xml  { render :xml => @poet.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -57,16 +57,16 @@ class PoetsController < ApplicationController
   # PUT /poets/1
   # PUT /poets/1.xml
   def update
-    @poets = Poets.find(params[:id])
+    @poet = Poet.find(params[:id])
 
     respond_to do |format|
-      if @poets.update_attributes(params[:poets])
-        flash[:notice] = 'Poets was successfully updated.'
-        format.html { redirect_to(@poets) }
+      if @poet.update_attributes(params[:poet])
+        flash[:notice] = 'Poet was successfully updated.'
+        format.html { redirect_to(@poet) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
-        format.xml  { render :xml => @poets.errors, :status => :unprocessable_entity }
+        format.xml  { render :xml => @poet.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -74,8 +74,8 @@ class PoetsController < ApplicationController
   # DELETE /poets/1
   # DELETE /poets/1.xml
   def destroy
-    @poets = Poets.find(params[:id])
-    @poets.destroy
+    @poet = Poet.find(params[:id])
+    @poet.destroy
 
     respond_to do |format|
       format.html { redirect_to(poets_url) }

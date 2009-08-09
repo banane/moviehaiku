@@ -8,19 +8,19 @@
     <th>Img url</th>
   </tr>
 
-<% @movies.each do |movies| %>
+<% @movies.each do |movie| %>
   <tr>
-    <td><%=h movies.name %></td>
-    <td><%=h movies.year %></td>
-    <td><%=h movies.imdb_url %></td>
-    <td><%=h movies.img_url %></td>
-    <td><%= link_to 'Show', movies %></td>
-    <td><%= link_to 'Edit', edit_movies_path(movies) %></td>
-    <td><%= link_to 'Destroy', movies, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%=h movie.name %></td>
+    <td><%=h movie.year %></td>
+    <td><%=h movie.imdb_url %></td>
+    <td><%=h movie.img_url %></td>
+    <td><%= link_to 'Show', movie %></td>
+    <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
+    <td><%= link_to 'Destroy', movie, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New movies', new_movies_path %>
+<%= link_to 'New movie', new_movie_path %>

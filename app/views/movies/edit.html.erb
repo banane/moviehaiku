@@ -1,6 +1,6 @@
-<h1>Editing movies</h1>
+<h1>Editing movie</h1>
 
-<% form_for(@movies) do |f| %>
+<% form_for(@movie) do |f| %>
   <%= f.error_messages %>
 
   <p>
@@ -24,5 +24,5 @@
   </p>
 <% end %>
 
-<%= link_to 'Show', @movies %> |
+<%= link_to 'Show', @movie %> |
 <%= link_to 'Back', movies_path %>

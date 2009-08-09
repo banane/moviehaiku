@@ -1,6 +1,6 @@
-<h1>Editing poets</h1>
+<h1>Editing poet</h1>
 
-<% form_for(@poets) do |f| %>
+<% form_for(@poet) do |f| %>
   <%= f.error_messages %>
 
   <p>
@@ -16,5 +16,5 @@
   </p>
 <% end %>
 
-<%= link_to 'Show', @poets %> |
+<%= link_to 'Show', @poet %> |
 <%= link_to 'Back', poets_path %>

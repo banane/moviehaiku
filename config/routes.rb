@@ -1,4 +1,10 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :movies
+
+  map.resources :poets
+
+  map.resources :poets
+
   map.resources :poets
 
   map.resources :movies
