@@ -21,6 +21,9 @@ class MoviesController < ApplicationController
     end
   end
 
+
+
+
   # GET /movies/new
   # GET /movies/new.xml
   def new

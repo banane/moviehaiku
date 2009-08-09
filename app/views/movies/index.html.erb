@@ -10,7 +10,7 @@
 
 <% @movies.each do |movie| %>
   <tr>
-    <td><%=h movie.name %></td>
+    <td><%= link_to movie.name, movie, :action => :show %></td>
     <td><%=h movie.year %></td>
 
     

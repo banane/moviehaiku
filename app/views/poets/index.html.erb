@@ -8,7 +8,7 @@
 
 <% @poets.each do |poet| %>
   <tr>
-    <td><%=h poet.name %></td>
+    <td><%= link_to poet.name, poet %></td>
    <!-- <td><%=h poet.email %></td>-->
     <td><%= link_to 'Show', poet %></td>
     <td><%= link_to 'Edit', edit_poet_path(poet) %></td>

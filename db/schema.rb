@@ -9,16 +9,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090809031845) do
+ActiveRecord::Schema.define(:version => 20090809045022) do
 
   create_table "haikus", :force => true do |t|
-    t.string   "poet"
     t.string   "line1"
     t.string   "line2"
     t.string   "line3"
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "poet_id"
+    t.integer  "movie_id"
   end
 
   create_table "movies", :force => true do |t|

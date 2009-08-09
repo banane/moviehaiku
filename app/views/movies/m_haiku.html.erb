@@ -1,11 +1,11 @@
-<h1>Haikus</h1>
+<h1>Haikus </h1>
 </div>
 
   <div id="getting-started">
 
 <% @haikus.each do |haiku| %>
  	
- 	<h2><%=h haiku.movie.name %></h2>
+ 	<h2><%=h haiku.movie.name%></h2>
  	 by <%=h haiku.poet.name %><br>
     <blockquote>
     <%=h haiku.line1 %><br />

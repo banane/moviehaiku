@@ -1,6 +1,6 @@
 <p>
  
-  <%= image_tag( @movie.img_url, :alt=>"Sliding Doors") %></p>
+  <%= image_tag( @movie.img_url, :alt=>@movie.name) %></p>
   <p>
 
   <%=h @movie.name %> (   <%=h @movie.year %> )
@@ -10,6 +10,23 @@
   <%= link_to @movie.aff_name, @movie.aff_url %>
 </p>
 
+
+<%  @haikus = Haiku.all(:conditions => {:movie_id => @movie.id}, :include => :movie, :include => :poet)  %>
+ 
+ 
+<% @haikus.each do |haiku|  %>
+  	 <%= haiku.line1 %>
+  	 <br />
+  	 <%= haiku.line2 %>
+  	 <br />
+  	 <%= haiku.line3 %>
+  	 <br />
+  	 -- by <%= haiku.poet.name  %>
+  	 </p>
+  	 
+  	 <% end %>
+<p> 
+ 
 
 
 <%= link_to 'Edit', edit_movie_path(@movie) %> |
