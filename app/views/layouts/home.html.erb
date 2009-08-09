@@ -13,16 +13,12 @@
 	<%= render(:partial => 'shared/sidebar') %>
 
 
-    
       <div id="content">
-        <div id="header"><h1><%= link_to "Movie Haikus", :controller=> "home" %></h1>
-       
+        <div id="header">
+          <h1>Movie Haikus</h1>
           <h2>7 x 5 x 7</h2>
         </div>
-
-
-         <div id="getting-started">
-    <p style="color: green"><%= flash[:notice] %></p>
+     <div id="getting-started">
 
 	<%= yield %>
 

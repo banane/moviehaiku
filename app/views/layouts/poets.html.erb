@@ -4,14 +4,31 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <title>Poets: <%= controller.action_name %></title>
-  <%= stylesheet_link_tag 'scaffold' %>
+  <title>Haikus: <%= controller.action_name %></title>
+  <%= stylesheet_link_tag 'moviehaiku.css' %>
 </head>
 <body>
+	<div id="page">
+	
+	<%= render(:partial => 'shared/sidebar') %>
 
-<p style="color: green"><%= flash[:notice] %></p>
 
-<%= yield %>
+    
+      <div id="content">
+        <div id="header">
+          <h1><%= link_to "Movie Haikus", :controller=> "home" %></h1>
+          <h2>7 x 5 x 7</h2>
+        </div>
+
+
+         <div id="getting-started">
+    <p style="color: green"><%= flash[:notice] %></p>
+
+	<%= yield %>
+
+		</div>
+	  </div>
+	</div>  
 
 </body>
 </html>

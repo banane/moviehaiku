@@ -1,23 +1,17 @@
 <p>
-  <b>Name:</b>
-  <%=h @movie.name %>
+ 
+  <%= image_tag( @movie.img_url, :alt=>"Sliding Doors") %></p>
+  <p>
+
+  <%=h @movie.name %> (   <%=h @movie.year %> )
+</p>
+<p>
+  <b>View more or rent on </b>
+  <%= link_to @movie.aff_name, @movie.aff_url %>
 </p>
 
-<p>
-  <b>Year:</b>
-  <%=h @movie.year %>
-</p>
-
-<p>
-  <b>Imdb url:</b>
-  <%=h @movie.imdb_url %>
-</p>
-
-<p>
-  <b>Img url:</b>
-  <%=h @movie.img_url %>
-</p>
 
 
 <%= link_to 'Edit', edit_movie_path(@movie) %> |
-<%= link_to 'Back', movies_path %>
+<%= link_to 'Back', movies_path %> |
+<%= link_to 'Home', :controller=>"home" %>

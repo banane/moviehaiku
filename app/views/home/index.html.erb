@@ -1,69 +1,14 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
-  <head>
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-    <title>Movie Haikus</title>
-     <%= stylesheet_link_tag 'moviehaiku.css' %>
-    <script type="text/javascript" src="javascripts/prototype.js"></script>
-    <script type="text/javascript" src="javascripts/effects.js"></script>
-  </head>
-  <body>
-    <div id="page">
-      <div id="sidebar">
-        <ul id="sidebar-items">
-          <li>
-            <h3>About</h3>
-          	<ul>
-          		<li>Movie Haikus
-          		<li>Me
-          		<li>Follow
-          		<li>Subscribe
-          	</ul>
-          </li>
-        
-          
-          <li>
-            <h3>The Rankings</h3>
-           <ul>
-           	<li>Top Haiku</li>
-           	<li>Top Poet</li>
-           	<li>Top Movie</li>
-           </ul>
-          </li>
-
-        
-        </ul>
-      </div>
-
-      <div id="content">
-        <div id="header">
-          <h1>Movie Haikus</h1>
-          <h2>7 x 5 x 7</h2>
-        </div>
 
 
-        
-        <div id="getting-started">
-          <h1><%= link_to "Read 'em", :controller=> "haikus" %> </h1>
-          <h1><%= link_to "Write 'em", :controller=>"haikus", :action => "new" %></h1>
-       <br>
-          <h1>"movies"</h1>
-         	<ul>
-         	
-  			
-  			<li><%= link_to "... more", :controller=>"haikus" %></li>
-  			</ul>
-          <h1>Poets</h1>
+          <h1><%= link_to "Haikus", :controller=> "haikus" %></h1>
+       
+          <h1><%= link_to "Movies", :controller=> "movies" %></h1>
+         
+  		
+          <h1><%= link_to "Poets", :controller=> "poets" %></h1>
           	<ul>
           	
-          		<li><%= link_to "... more", :controller=>"haikus" %>
           	</ul>
           		
         </div>
-      </div>
-      
-      <div id="footer">&nbsp;</div>
-    </div>
-  </body>
-</html>
+      </div

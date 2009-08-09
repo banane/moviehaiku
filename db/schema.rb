@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090809025518) do
+ActiveRecord::Schema.define(:version => 20090809031845) do
 
   create_table "haikus", :force => true do |t|
     t.string   "poet"
@@ -24,10 +24,11 @@ ActiveRecord::Schema.define(:version => 20090809025518) do
   create_table "movies", :force => true do |t|
     t.string   "name"
     t.string   "year"
-    t.string   "imdb_url"
     t.string   "img_url"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "aff_url"
+    t.string   "aff_name"
   end
 
   create_table "poets", :force => true do |t|
