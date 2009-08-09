@@ -1,0 +1,7 @@
+(in /Users/anna/Sites/moviehaiku)
+** Invoke db:migrate (first_time)
+** Invoke environment (first_time)
+** Execute environment
+** Execute db:migrate
+==  CreateMovies: migrating ===================================================
+-- create_table(:movies)
