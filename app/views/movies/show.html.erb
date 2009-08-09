@@ -1,0 +1,23 @@
+<p>
+  <b>Name:</b>
+  <%=h @movies.name %>
+</p>
+
+<p>
+  <b>Year:</b>
+  <%=h @movies.year %>
+</p>
+
+<p>
+  <b>Imdb url:</b>
+  <%=h @movies.imdb_url %>
+</p>
+
+<p>
+  <b>Img url:</b>
+  <%=h @movies.img_url %>
+</p>
+
+
+<%= link_to 'Edit', edit_movies_path(@movies) %> |
+<%= link_to 'Back', movies_path %>

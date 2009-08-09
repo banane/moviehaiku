@@ -5,8 +5,7 @@ class CreateHaikus < ActiveRecord::Migration
       t.string :line1
       t.string :line2
       t.string :line3
-      t.string :email
-      t.string :movie
+      t.string :email 
 
       t.timestamps
     end

@@ -1,0 +1,22 @@
+<h1>Listing poets</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+  </tr>
+
+<% @poets.each do |poets| %>
+  <tr>
+    <td><%=h poets.name %></td>
+    <td><%=h poets.email %></td>
+    <td><%= link_to 'Show', poets %></td>
+    <td><%= link_to 'Edit', edit_poets_path(poets) %></td>
+    <td><%= link_to 'Destroy', poets, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New poets', new_poets_path %>

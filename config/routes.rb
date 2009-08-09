@@ -1,4 +1,9 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :poets
+
+  map.resources :movies
+
+
   map.resources :haikus
 
   # priority is based upon order of creation: first created -> highest priority.
