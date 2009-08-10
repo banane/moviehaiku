@@ -2,35 +2,43 @@
 </div>
 <div id="getting-started">
 
-<% form_for(@haiku) do |f| %>
-  <%= f.error_messages %>
+<% form_for :haiku, @haiku, :url => { :action => "create" } do |haiku_form|  %>
+<p>  <%= haiku_form.error_messages %></p>
+<h1>Movie</h1>
+<%= select("haiku", "movie_id", Movie.all.collect {|p| [ p.name, p.id ] }, {:include_blank => ' '}) %>
+<% form_for :movie, @movie, :url => { :action => "create" } do |movie_form|  %>
+    <%=movie_form.text_field :name %>
+<% end %>
+
+<hr width=10>
+<h1>Poet</h1> (you)
+<%= select("haiku", "poet_id", Poet.all.collect {|p| [ p.name, p.id ] }, {:include_blank => ' '}) %>
+<% form_for :poet, @poet, :url => { :action => "create" } do |poet_form|  %> 
+<%=poet_form.text_field :name %>
+	   <br />email (will not be displayed)
+	   <%=poet_form.text_field :email %>
+<% end %>
+<hr width="10">
+<h1> Hiaku!</h1>
 
   <p>
-    <%= f.label :poet %><br />
-    <%= f.text_field :poet %>
+    (7 syllables)<br />
+    <%= haiku_form.text_field :line1 %>
   </p>
   <p>
-    Line 1: (7 syllables)<br />
-    <%= f.text_field :line1 %>
+    (5 syllables)<br />
+    <%= haiku_form.text_field :line2 %>
   </p>
   <p>
-    Line 2: (5 syllables)<br />
-    <%= f.text_field :line2 %>
-  </p>
-  <p>
-    Line 3: (7 syllables, reflection on earlier 2 lines)
+     (7 syllables, reflection on earlier 2 lines)
 	<br />
-    <%= f.text_field :line3 %>
-  </p>
-  <p>
-    <%= f.label :email %> (For Your Eyes Only)<br />
-    <%= f.text_field :email %>
+    <%= haiku_form.text_field :line3 %>
   </p>
 
   <p>
-    <%= f.submit 'Create' %>
+    <%= haiku_form.submit 'Create' %>
   </p>
 <% end %>
 
 <%= link_to 'Back', haikus_path %>
-<%= link_to 'Home', :controller => 'home' %>
+

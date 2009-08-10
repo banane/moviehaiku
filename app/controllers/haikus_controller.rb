@@ -28,12 +28,16 @@ class HaikusController < ApplicationController
   # GET /haikus/new.xml
   def new
     @haiku = Haiku.new
-
+  
+    
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml => @haiku }
+      format.xml  { render :xml => @haiku}
     end
+    
+
   end
+ 
 
   # GET /haikus/1/edit
   def edit
