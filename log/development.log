@@ -26559,3 +26559,80 @@ Rendering haikus/new
   [4;36;1mPoet Load (0.4ms)[0m   [0;1mSELECT * FROM "poets" [0m
 Rendered shared/_sidebar (0.4ms)
 Completed in 25ms (View: 18, DB: 1) | 200 OK [http://0.0.0.0/haikus/new]
+  [4;36;1mSQL (0.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateHaikus (20090806005538)
+Migrating to ModHaiku (20090809023757)
+Migrating to DropMovies (20090809024835)
+Migrating to CreatePoets (20090809025132)
+Migrating to CreateMovies (20090809025518)
+Migrating to ModMovies (20090809031845)
+Migrating to AddPoetImg (20090809035724)
+Migrating to HaikuMod2a (20090809044921)
+Migrating to HaikuMod2b (20090809045022)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("haikus")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("movies")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("poets")[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateHaikus (20090806005538)
+Migrating to DropMovies (20090809024835)
+Migrating to CreatePoets (20090809025132)
+Migrating to CreateMovies (20090809025518)
+Migrating to ModMovies (20090809031845)
+Migrating to AddPoetImg (20090809035724)
+Migrating to HaikuMod2a (20090809044921)
+Migrating to HaikuMod2b (20090809045022)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("haikus")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("movies")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("poets")[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateHaikus (20090806005538)
+Migrating to CreatePoets (20090809025132)
+Migrating to CreateMovies (20090809025518)
+Migrating to ModMovies (20090809031845)
+Migrating to HaikuMod2a (20090809044921)
+Migrating to HaikuMod2b (20090809045022)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("haikus")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("movies")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("poets")[0m
