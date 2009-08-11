@@ -1,25 +1,16 @@
-<h1>Write 'em</h1>
-</div>
-<div id="getting-started">
-
 <% form_for :haiku, @haiku, :url => { :action => "create" } do |haiku_form|  %>
 <p>  <%= haiku_form.error_messages %></p>
-<h1>Movie</h1>
-<%= select("haiku", "movie_id", Movie.all.collect {|p| [ p.name, p.id ] }, {:include_blank => ' '}) %>
-<% form_for :movie, @movie, :url => { :action => "create" } do |movie_form|  %>
-    <%=movie_form.text_field :name %>
-<% end %>
 
-<hr width=10>
-<h1>Poet</h1> (you)
+Movies<br />
+<%= select("haiku", "movie_id", Movie.all.collect {|p| [ p.name, p.id ] }, {:include_blank => ' '}) %> 
+
+<p class="grey_comment">
+Not in list? <%= link_to "Create movie", :controller=>"movies", :action=>"new"%>
+</p>
+
+Poet<br />
 <%= select("haiku", "poet_id", Poet.all.collect {|p| [ p.name, p.id ] }, {:include_blank => ' '}) %>
-<% form_for :poet, @poet, :url => { :action => "create" } do |poet_form|  %> 
-<%=poet_form.text_field :name %>
-	   <br />email (will not be displayed)
-	   <%=poet_form.text_field :email %>
-<% end %>
-<hr width="10">
-<h1> Hiaku!</h1>
+Not in list? <%= link_to "Create poet", :controller=>"poets", :action=>"new" %>
 
   <p>
     (7 syllables)<br />

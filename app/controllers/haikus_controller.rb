@@ -9,8 +9,6 @@ class HaikusController < ApplicationController
       format.xml  { render :xml => @haikus }
     end
   end
-
-  
  
 
   # GET /haikus/1
@@ -34,8 +32,7 @@ class HaikusController < ApplicationController
       format.html # new.html.erb
       format.xml  { render :xml => @haiku}
     end
-    
-
+   
   end
  
 

@@ -1,19 +1,18 @@
-<p>
- 
-  <%= image_tag( @movie.img_url, :alt=>@movie.name) %></p>
-  <p>
+<div id="body content" style="height:200px;">
 
-  <%=h @movie.name %> (   <%=h @movie.year %> )
-</p>
-<p>
-  <b>View more or rent on </b>
-  <%= link_to @movie.aff_name, @movie.aff_url %>
-</p>
+<h1> <%=h @movie.name %> (   <%=h @movie.year %> )</h1>
+...<%= link_to "Write one", :controller=>"haikus", :action=>"new", :id=>@movie.id %>
+...
+<div id="movie image" style="text-align:right;float:right;border:1px solid gray;padding:5px;margin:5px;">
+  
+ <a href="<%=h @movie.aff_url%>"><%= image_tag(@movie.img_url, :border=>0)  %></a>
+</div>
+<br />
 
 
 <%  @haikus = Haiku.all(:conditions => {:movie_id => @movie.id}, :include => :movie, :include => :poet)  %>
  
- 
+<blockquote>
 <% @haikus.each do |haiku|  %>
   	 <%= haiku.line1 %>
   	 <br />
@@ -21,14 +20,13 @@
   	 <br />
   	 <%= haiku.line3 %>
   	 <br />
-  	 -- by <%= haiku.poet.name  %>
-  	 </p>
-  	 
-  	 <% end %>
-<p> 
- 
-
-
+  	 -- by <%= link_to haiku.poet.name, :controller=>"poets", :action=>"show", :id=>haiku.id  %>
+</blockquote>  	 
+<% end %>
+<br />
+  View more or rent on <%= link_to @movie.aff_name, @movie.aff_url %>
+</div>
+<div id="footer_view" style="width:100%; float:bottom;">
 <%= link_to 'Edit', edit_movie_path(@movie) %> |
 <%= link_to 'Back', movies_path %> |
 <%= link_to 'Home', :controller=>"home" %>

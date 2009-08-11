@@ -8,7 +8,9 @@
         color: #333;
       }
       
-      h1 {
+	
+     
+     h1 {
         font-size: 28px;
         margin-bottom: 25px;
       }
@@ -146,3 +148,21 @@
         margin-bottom: 5px;
       }
       
+      select {
+         font-family: courier;
+         weight:bold;
+      }
+      
+      grey_comment {
+      	 font-family:courier;
+         color:gray;
+         font-size: 10px;
+      }
+      
+      #movie_image {
+		text-align:right;
+		float:right;
+		padding: 5px;
+		border:1px solid gray;
+		margin:5px;      
+     }

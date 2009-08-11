@@ -1,26 +1,22 @@
 <p>
-  <b>Name:</b>
-  <%=h @poet.name %>
+Movie Haikus by <%=h @poet.name %>, Poet
 </p>
 
-<!--<p>
-  <b>Email:</b>
-  <%=h @poet.email %>
-</p>-->
 
 <%  @haikus = Haiku.all(:conditions => {:poet_id => @poet.id}, :include => :movie, :include => :poet)  %>
  
  
 <% @haikus.each do |haiku|  %>
-	<h1><%= haiku.movie.name%></h1>
+	<h1><%= link_to haiku.movie.name, :controller=>"movies", :action=>"show", :id=>haiku.movie_id%></h1>
+	<blockquote>
   	 <%= haiku.line1 %>
   	 <br />
   	 <%= haiku.line2 %>
   	 <br />
   	 <%= haiku.line3 %>
   	 <br />
-  	 -- by <%= haiku.poet.name  %>
-  	 </p>
+  	 
+	</blockquote>  	 
   	 
   	 <% end %>
 <p> 

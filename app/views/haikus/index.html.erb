@@ -1,12 +1,10 @@
-<h1>Haikus</h1>
-</div>
-
-  <div id="getting-started">
-
 <% @haikus.each do |haiku| %>
  	
- 	<h2><%=h haiku.movie.name %></h2>
- 	 by <%=h haiku.poet.name %><br>
+ 	<h2>
+ 	<%= link_to haiku.movie.name, :controller=>"movies", :action=>"show", :id=>haiku.movie_id %>
+ 	<!--<%=h haiku.movie.name%>-->
+ 	</h2>
+ 	 by <%= link_to haiku.poet.name, :controller=>"poets", :action=>"show", :id=>haiku.poet_id %><br>
     <blockquote>
     <%=h haiku.line1 %><br />
     <%=h haiku.line2 %><br />

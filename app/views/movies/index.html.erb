@@ -1,23 +1,9 @@
 <h1>Listing movies</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Year</th>
-    <th>Imdb url</th>
-    <th>Img url</th>
-  </tr>
-
+<ul>
 <% @movies.each do |movie| %>
-  <tr>
-    <td><%= link_to movie.name, movie, :action => :show %></td>
-    <td><%=h movie.year %></td>
-
-    
-    <td><%= link_to 'Show', movie %></td>
-    <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
-    <td><%= link_to 'Destroy', movie, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+  <li><%= link_to movie.name, movie, :action => :show %>
+   ( <%=h movie.year %>)  (<%= link_to 'Edit', edit_movie_path(movie) %>)</li>
 <% end %>
 </table>
 
