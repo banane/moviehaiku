@@ -14,9 +14,10 @@ class HaikusController < ApplicationController
   # GET /haikus/1
   # GET /haikus/1.xml
   def show
-    @haiku = Haiku.find(params[:id])
-
+    @haiku = Haiku.find(params[:id], :include=>:movie, :include=>:poet)
+#    @haiku = Haiku.all(:conditions => { :id => (params[:id])}, :include => :movie, :include => :poet )
     respond_to do |format|
+    
       format.html # show.html.erb
       format.xml  { render :xml => @haiku }
     end

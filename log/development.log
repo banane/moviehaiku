@@ -26636,3 +26636,1052 @@ Migrating to HaikuMod2b (20090809045022)
   [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("haikus")[0m
   [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("movies")[0m
   [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("poets")[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-08-11 01:34:07) [GET]
+Rendering template within layouts/home
+Rendering home/index
+Rendered shared/_sidebar (0.4ms)
+Completed in 4ms (View: 2, DB: 0) | 200 OK [http://0.0.0.0/]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-08-11 13:05:50) [GET]
+Rendering template within layouts/home
+Rendering home/index
+Rendered shared/_sidebar (14.8ms)
+Completed in 66ms (View: 64, DB: 0) | 200 OK [http://0.0.0.0/]
+
+
+Processing HaikusController#index (for 127.0.0.1 at 2009-08-11 13:05:53) [GET]
+  [4;36;1mHaiku Load (23.1ms)[0m   [0;1mSELECT * FROM "haikus" [0m
+  [4;35;1mPoet Load (0.4ms)[0m   [0mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/index
+  [4;36;1mMovie Load (0.4ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 1) [0m
+  [4;35;1mMovie Load (0.3ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 2) [0m
+  [4;36;1mMovie Load (0.3ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+Rendered shared/_sidebar (0.5ms)
+Completed in 259ms (View: 112, DB: 24) | 200 OK [http://0.0.0.0/haikus]
+
+
+Processing HaikusController#new (for 127.0.0.1 at 2009-08-11 13:05:54) [GET]
+Rendering template within layouts/haikus
+Rendering haikus/new
+
+ActionView::TemplateError (undefined local variable or method `f' for #<ActionView::Base:0x24d7ce8>) on line #5 of app/views/haikus/new.html.erb:
+2: <p>  <%= haiku_form.error_messages %></p>
+3: 
+4: Movies<br />
+5: <%= f.select("haiku", "movie_id", Movie.all.collect {|p| [ p.name, p.id ] }, {:include_blank => ' '}) %> 
+6: 
+7: <p class="grey_comment">
+8: Not in list? <%= link_to "Create movie", :controller=>"movies", :action=>"new"%>
+
+    app/views/haikus/new.html.erb:5
+    app/views/haikus/new.html.erb:1
+    app/controllers/haikus_controller.rb:31:in `new'
+
+Rendered rescues/_trace (126.5ms)
+Rendered rescues/_request_and_response (1.7ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing HaikusController#new (for 127.0.0.1 at 2009-08-11 13:06:06) [GET]
+Rendering template within layouts/haikus
+Rendering haikus/new
+  [4;35;1mMovie Load (0.6ms)[0m   [0mSELECT * FROM "movies" [0m
+
+ActionView::TemplateError (undefined method `merge' for #<Array:0x25bb36c>) on line #5 of app/views/haikus/new.html.erb:
+2: <p>  <%= haiku_form.error_messages %></p>
+3: 
+4: Movies<br />
+5: <%= haiku_form.select("haiku", "movie_id", Movie.all.collect {|p| [ p.name, p.id ] }, {:include_blank => ' '}) %> 
+6: 
+7: <p class="grey_comment">
+8: Not in list? <%= link_to "Create movie", :controller=>"movies", :action=>"new"%>
+
+    app/views/haikus/new.html.erb:5
+    app/views/haikus/new.html.erb:1
+    app/controllers/haikus_controller.rb:31:in `new'
+
+Rendered rescues/_trace (51.0ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing HaikusController#new (for 127.0.0.1 at 2009-08-11 13:06:19) [GET]
+Rendering template within layouts/haikus
+Rendering haikus/new
+  [4;36;1mMovie Load (0.6ms)[0m   [0;1mSELECT * FROM "movies" [0m
+  [4;35;1mPoet Load (0.3ms)[0m   [0mSELECT * FROM "poets" [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 31ms (View: 23, DB: 1) | 200 OK [http://0.0.0.0/haikus/new]
+
+
+Processing HaikusController#new (for 127.0.0.1 at 2009-08-11 13:06:56) [GET]
+Rendering template within layouts/haikus
+Rendering haikus/new
+  [4;36;1mMovie Load (0.6ms)[0m   [0;1mSELECT * FROM "movies" [0m
+  [4;35;1mPoet Load (0.3ms)[0m   [0mSELECT * FROM "poets" [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 29ms (View: 21, DB: 1) | 200 OK [http://0.0.0.0/haikus/new]
+
+
+Processing HaikusController#create (for 127.0.0.1 at 2009-08-11 13:07:04) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"CRcRMm0xIUtcrj+nmGqCYX8xguSYZ/+Fg/EzwyD0af4=", "haiku"=>{"line1"=>"1", "line2"=>"2", "poet_id"=>"1", "line3"=>"3", "movie_id"=>"8"}}
+  [4;36;1mHaiku Create (0.5ms)[0m   [0;1mINSERT INTO "haikus" ("line1", "line2", "updated_at", "poet_id", "line3", "movie_id", "email", "created_at") VALUES('1', '2', '2009-08-11 20:07:04', 1, '3', 8, NULL, '2009-08-11 20:07:04')[0m
+Redirected to http://0.0.0.0:3000/haikus/5
+Completed in 13ms (DB: 0) | 302 Found [http://0.0.0.0/haikus]
+
+
+Processing HaikusController#show (for 127.0.0.1 at 2009-08-11 13:07:04) [GET]
+  Parameters: {"id"=>"5"}
+  [4;35;1mHaiku Load (0.3ms)[0m   [0mSELECT * FROM "haikus" WHERE ("haikus"."id" = 5) [0m
+Rendering template within layouts/haikus
+Rendering haikus/show
+  [4;36;1mPoet Load (0.3ms)[0m   [0;1mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+  [4;35;1mMovie Load (0.3ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 37ms (View: 30, DB: 1) | 200 OK [http://0.0.0.0/haikus/5]
+
+
+Processing HaikusController#index (for 127.0.0.1 at 2009-08-11 13:07:07) [GET]
+  [4;36;1mHaiku Load (0.9ms)[0m   [0;1mSELECT * FROM "haikus" [0m
+  [4;35;1mPoet Load (0.3ms)[0m   [0mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/index
+  [4;36;1mMovie Load (0.3ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 1) [0m
+  [4;35;1mMovie Load (0.3ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 2) [0m
+  [4;36;1mMovie Load (0.2ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 28ms (View: 13, DB: 2) | 200 OK [http://0.0.0.0/haikus]
+
+
+Processing MoviesController#show (for 127.0.0.1 at 2009-08-11 13:07:37) [GET]
+  Parameters: {"id"=>"8"}
+  [4;36;1mMovie Load (0.3ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+Rendering template within layouts/movies
+Rendering movies/show
+  [4;35;1mHaiku Load (0.5ms)[0m   [0mSELECT * FROM "haikus" WHERE ("haikus"."movie_id" = 8) [0m
+  [4;36;1mPoet Load (0.3ms)[0m   [0;1mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 75ms (View: 64, DB: 1) | 200 OK [http://0.0.0.0/movies/8]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-08-11 13:07:40) [GET]
+Rendering template within layouts/home
+Rendering home/index
+Rendered shared/_sidebar (0.4ms)
+Completed in 4ms (View: 2, DB: 0) | 200 OK [http://0.0.0.0/]
+
+
+Processing HaikusController#index (for 127.0.0.1 at 2009-08-11 13:07:42) [GET]
+  [4;35;1mHaiku Load (0.9ms)[0m   [0mSELECT * FROM "haikus" [0m
+  [4;36;1mPoet Load (0.3ms)[0m   [0;1mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/index
+  [4;35;1mMovie Load (0.3ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 1) [0m
+  [4;36;1mMovie Load (0.3ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 2) [0m
+  [4;35;1mMovie Load (0.2ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 99ms (View: 12, DB: 2) | 200 OK [http://0.0.0.0/haikus]
+
+
+Processing HaikusController#new (for 127.0.0.1 at 2009-08-11 13:07:45) [GET]
+Rendering template within layouts/haikus
+Rendering haikus/new
+  [4;35;1mMovie Load (0.6ms)[0m   [0mSELECT * FROM "movies" [0m
+  [4;36;1mPoet Load (0.3ms)[0m   [0;1mSELECT * FROM "poets" [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 24ms (View: 17, DB: 1) | 200 OK [http://0.0.0.0/haikus/new]
+
+
+Processing HaikusController#create (for 127.0.0.1 at 2009-08-11 13:07:53) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"CRcRMm0xIUtcrj+nmGqCYX8xguSYZ/+Fg/EzwyD0af4=", "haiku"=>{"line1"=>"ss", "line2"=>"scottish rower boyfriend", "poet_id"=>"1", "line3"=>"s", "movie_id"=>"1"}}
+  [4;35;1mHaiku Create (0.4ms)[0m   [0mINSERT INTO "haikus" ("line1", "line2", "updated_at", "poet_id", "line3", "movie_id", "email", "created_at") VALUES('ss', 'scottish rower boyfriend', '2009-08-11 20:07:53', 1, 's', 1, NULL, '2009-08-11 20:07:53')[0m
+Redirected to http://0.0.0.0:3000/haikus/6
+Completed in 15ms (DB: 0) | 302 Found [http://0.0.0.0/haikus]
+
+
+Processing HaikusController#show (for 127.0.0.1 at 2009-08-11 13:07:53) [GET]
+  Parameters: {"id"=>"6"}
+  [4;36;1mHaiku Load (0.3ms)[0m   [0;1mSELECT * FROM "haikus" WHERE ("haikus"."id" = 6) [0m
+Rendering template within layouts/haikus
+Rendering haikus/show
+  [4;35;1mPoet Load (0.2ms)[0m   [0mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+  [4;36;1mMovie Load (0.4ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 1) [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 21ms (View: 14, DB: 1) | 200 OK [http://0.0.0.0/haikus/6]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-08-11 13:08:41) [GET]
+Rendering template within layouts/home
+Rendering home/index
+Rendered shared/_sidebar (0.4ms)
+Completed in 4ms (View: 2, DB: 0) | 200 OK [http://0.0.0.0/]
+
+
+Processing HaikusController#index (for 127.0.0.1 at 2009-08-11 13:08:42) [GET]
+  [4;35;1mHaiku Load (1.0ms)[0m   [0mSELECT * FROM "haikus" [0m
+  [4;36;1mPoet Load (0.3ms)[0m   [0;1mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/index
+  [4;35;1mMovie Load (0.3ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 1) [0m
+  [4;36;1mMovie Load (0.3ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 2) [0m
+  [4;35;1mMovie Load (0.2ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 1) [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 26ms (View: 12, DB: 2) | 200 OK [http://0.0.0.0/haikus]
+
+
+Processing MoviesController#show (for 127.0.0.1 at 2009-08-11 13:08:43) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mMovie Load (0.3ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 1) [0m
+Rendering template within layouts/movies
+Rendering movies/show
+  [4;35;1mHaiku Load (0.4ms)[0m   [0mSELECT * FROM "haikus" WHERE ("haikus"."movie_id" = 1) [0m
+  [4;36;1mPoet Load (0.2ms)[0m   [0;1mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 24ms (View: 16, DB: 1) | 200 OK [http://0.0.0.0/movies/1]
+
+
+Processing HaikusController#show (for 127.0.0.1 at 2009-08-11 13:08:48) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mHaiku Load (0.3ms)[0m   [0mSELECT * FROM "haikus" WHERE ("haikus"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/show
+  [4;36;1mPoet Load (0.3ms)[0m   [0;1mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+  [4;35;1mMovie Load (0.3ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 1) [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 95ms (View: 86, DB: 1) | 200 OK [http://0.0.0.0/haikus/1]
+
+
+Processing HaikusController#show (for 127.0.0.1 at 2009-08-11 13:09:19) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mHaiku Load (0.3ms)[0m   [0;1mSELECT * FROM "haikus" WHERE ("haikus"."id" = 1) [0m
+
+ActiveRecord::ConfigurationError (Association named 'poets' was not found; perhaps you misspelled it?):
+  app/controllers/haikus_controller.rb:17:in `show'
+
+Rendered rescues/_trace (43.3ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing HaikusController#show (for 127.0.0.1 at 2009-08-11 13:10:17) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mHaiku Load (0.3ms)[0m   [0mSELECT * FROM "haikus" WHERE ("haikus"."id" = 1) [0m
+  [4;36;1mPoet Load (0.2ms)[0m   [0;1mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/show
+  [4;35;1mMovie Load (0.3ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 1) [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 20ms (View: 7, DB: 1) | 200 OK [http://0.0.0.0/haikus/1]
+
+
+Processing HaikusController#show (for 127.0.0.1 at 2009-08-11 13:10:18) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mHaiku Load (0.3ms)[0m   [0;1mSELECT * FROM "haikus" WHERE ("haikus"."id" = 1) [0m
+  [4;35;1mPoet Load (0.2ms)[0m   [0mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/show
+  [4;36;1mMovie Load (0.3ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 1) [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 20ms (View: 7, DB: 1) | 200 OK [http://0.0.0.0/haikus/1]
+
+
+Processing HaikusController#show (for 127.0.0.1 at 2009-08-11 13:10:38) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mHaiku Load (0.4ms)[0m   [0mSELECT * FROM "haikus" WHERE ("haikus"."id" = 1) [0m
+  [4;36;1mPoet Load (0.2ms)[0m   [0;1mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/show
+  [4;35;1mMovie Load (0.3ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 1) [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 26ms (View: 10, DB: 1) | 200 OK [http://0.0.0.0/haikus/1]
+
+
+Processing HaikusController#show (for 127.0.0.1 at 2009-08-11 13:10:48) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mHaiku Load (0.3ms)[0m   [0;1mSELECT * FROM "haikus" WHERE ("haikus"."id" = 1) [0m
+  [4;35;1mPoet Load (0.2ms)[0m   [0mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/show
+
+ActionView::TemplateError (undefined method `name' for #<Haiku:0x23ae678>) on line #3 of app/views/haikus/show.html.erb:
+1: <p>
+2:   <b>Poet:</b>
+3:   <%=h @haiku.name %>
+4: </p>
+5: 
+6: <p>
+
+    app/views/haikus/show.html.erb:3
+    app/controllers/haikus_controller.rb:19:in `show'
+
+Rendered rescues/_trace (49.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing HaikusController#show (for 127.0.0.1 at 2009-08-11 13:10:51) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mHaiku Load (0.3ms)[0m   [0;1mSELECT * FROM "haikus" WHERE ("haikus"."id" = 1) [0m
+  [4;35;1mPoet Load (0.2ms)[0m   [0mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/show
+  [4;36;1mMovie Load (0.3ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 1) [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 24ms (View: 11, DB: 1) | 200 OK [http://0.0.0.0/haikus/1]
+
+
+Processing HaikusController#show (for 127.0.0.1 at 2009-08-11 13:11:00) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mHaiku Load (0.3ms)[0m   [0mSELECT * FROM "haikus" WHERE ("haikus"."id" = 1) [0m
+  [4;36;1mPoet Load (0.2ms)[0m   [0;1mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/show
+  [4;35;1mMovie Load (0.3ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 1) [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 24ms (View: 11, DB: 1) | 200 OK [http://0.0.0.0/haikus/1]
+
+
+Processing HaikusController#show (for 127.0.0.1 at 2009-08-11 13:11:46) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mHaiku Load (0.3ms)[0m   [0;1mSELECT * FROM "haikus" WHERE ("haikus"."id" = 1) [0m
+  [4;35;1mPoet Load (0.2ms)[0m   [0mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/show
+
+ActionView::TemplateError (undefined local variable or method `haiku' for #<ActionView::Base:0x240ad9c>) on line #3 of app/views/haikus/show.html.erb:
+1: 
+2:  	<h2>
+3:  	<%= link_to haiku.movie.name, :controller=>"movies", :action=>"show", :id=>haiku.movie_id %>
+4:  	<!--<%=h haiku.movie.name%>-->
+5:  	</h2>
+6:  	 by <%= link_to haiku.poet.name, :controller=>"poets", :action=>"show", :id=>haiku.poet_id %><br>
+
+    app/views/haikus/show.html.erb:3
+    app/controllers/haikus_controller.rb:19:in `show'
+
+Rendered rescues/_trace (50.5ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing HaikusController#show (for 127.0.0.1 at 2009-08-11 13:13:43) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mHaiku Load (0.3ms)[0m   [0;1mSELECT * FROM "haikus" WHERE ("haikus"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/show
+
+ActionView::TemplateError (undefined local variable or method `haiku' for #<ActionView::Base:0x252f6b4>) on line #3 of app/views/haikus/show.html.erb:
+1: 
+2:  	<h2>
+3:  	<%= link_to haiku.movie.name, :controller=>"movies", :action=>"show", :id=>haiku.movie_id %>
+4:  	<!--<%=h haiku.movie.name%>-->
+5:  	</h2>
+6:  	 by <%= link_to haiku.poet.name, :controller=>"poets", :action=>"show", :id=>haiku.poet_id %><br>
+
+    app/views/haikus/show.html.erb:3
+    app/controllers/haikus_controller.rb:19:in `show'
+
+Rendered rescues/_trace (51.5ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing HaikusController#show (for 127.0.0.1 at 2009-08-11 13:13:44) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mHaiku Load (0.3ms)[0m   [0mSELECT * FROM "haikus" WHERE ("haikus"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/show
+
+ActionView::TemplateError (undefined local variable or method `haiku' for #<ActionView::Base:0x23c2d58>) on line #3 of app/views/haikus/show.html.erb:
+1: 
+2:  	<h2>
+3:  	<%= link_to haiku.movie.name, :controller=>"movies", :action=>"show", :id=>haiku.movie_id %>
+4:  	<!--<%=h haiku.movie.name%>-->
+5:  	</h2>
+6:  	 by <%= link_to haiku.poet.name, :controller=>"poets", :action=>"show", :id=>haiku.poet_id %><br>
+
+    app/views/haikus/show.html.erb:3
+    app/controllers/haikus_controller.rb:19:in `show'
+
+Rendered rescues/_trace (49.5ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing HaikusController#show (for 127.0.0.1 at 2009-08-11 13:13:45) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mHaiku Load (0.3ms)[0m   [0;1mSELECT * FROM "haikus" WHERE ("haikus"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/show
+
+ActionView::TemplateError (undefined local variable or method `haiku' for #<ActionView::Base:0x24f08ec>) on line #3 of app/views/haikus/show.html.erb:
+1: 
+2:  	<h2>
+3:  	<%= link_to haiku.movie.name, :controller=>"movies", :action=>"show", :id=>haiku.movie_id %>
+4:  	<!--<%=h haiku.movie.name%>-->
+5:  	</h2>
+6:  	 by <%= link_to haiku.poet.name, :controller=>"poets", :action=>"show", :id=>haiku.poet_id %><br>
+
+    app/views/haikus/show.html.erb:3
+    app/controllers/haikus_controller.rb:19:in `show'
+
+Rendered rescues/_trace (125.3ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing HaikusController#show (for 127.0.0.1 at 2009-08-11 13:13:56) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mHaiku Load (0.3ms)[0m   [0mSELECT * FROM "haikus" WHERE ("haikus"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/show
+
+ActionView::TemplateError (undefined local variable or method `haiku' for #<ActionView::Base:0x263cbd8>) on line #3 of app/views/haikus/show.html.erb:
+1: 
+2:  	<h2>
+3:  	<%= link_to haiku.movie.name, :controller=>"movies", :action=>"show", :id=>haiku.movie_id %>
+4:  	<!--<%=h haiku.movie.name%>-->
+5:  	</h2>
+6:  	 by <%= link_to haiku.poet.name, :controller=>"poets", :action=>"show", :id=>haiku.poet_id %><br>
+
+    app/views/haikus/show.html.erb:3
+    app/controllers/haikus_controller.rb:19:in `show'
+
+Rendered rescues/_trace (49.0ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-08-11 13:14:06) [GET]
+Rendering template within layouts/home
+Rendering home/index
+Rendered shared/_sidebar (0.4ms)
+Completed in 4ms (View: 2, DB: 0) | 200 OK [http://0.0.0.0/]
+
+
+Processing HaikusController#index (for 127.0.0.1 at 2009-08-11 13:14:07) [GET]
+  [4;36;1mHaiku Load (1.0ms)[0m   [0;1mSELECT * FROM "haikus" [0m
+  [4;35;1mPoet Load (0.2ms)[0m   [0mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/index
+  [4;36;1mMovie Load (0.3ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 1) [0m
+  [4;35;1mMovie Load (0.3ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 2) [0m
+  [4;36;1mMovie Load (0.2ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 1) [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 26ms (View: 11, DB: 2) | 200 OK [http://0.0.0.0/haikus]
+
+
+Processing MoviesController#show (for 127.0.0.1 at 2009-08-11 13:14:08) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mMovie Load (0.3ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 1) [0m
+Rendering template within layouts/movies
+Rendering movies/show
+  [4;36;1mHaiku Load (0.4ms)[0m   [0;1mSELECT * FROM "haikus" WHERE ("haikus"."movie_id" = 1) [0m
+  [4;35;1mPoet Load (0.2ms)[0m   [0mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 24ms (View: 16, DB: 1) | 200 OK [http://0.0.0.0/movies/1]
+
+
+Processing MoviesController#show (for 127.0.0.1 at 2009-08-11 13:14:14) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mMovie Load (0.3ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 1) [0m
+Rendering template within layouts/movies
+Rendering movies/show
+  [4;35;1mHaiku Load (0.4ms)[0m   [0mSELECT * FROM "haikus" WHERE ("haikus"."movie_id" = 1) [0m
+  [4;36;1mPoet Load (0.3ms)[0m   [0;1mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 30ms (View: 19, DB: 1) | 200 OK [http://0.0.0.0/movies/1]
+
+
+Processing HaikusController#show (for 127.0.0.1 at 2009-08-11 13:14:17) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mHaiku Load (0.3ms)[0m   [0mSELECT * FROM "haikus" WHERE ("haikus"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/show
+
+ActionView::TemplateError (undefined local variable or method `haiku' for #<ActionView::Base:0x25da398>) on line #3 of app/views/haikus/show.html.erb:
+1: 
+2:  	<h2>
+3:  	<%= link_to haiku.movie.name, :controller=>"movies", :action=>"show", :id=>haiku.movie_id %>
+4:  	<!--<%=h haiku.movie.name%>-->
+5:  	</h2>
+6:  	 by <%= link_to haiku.poet.name, :controller=>"poets", :action=>"show", :id=>haiku.poet_id %><br>
+
+    app/views/haikus/show.html.erb:3
+    app/controllers/haikus_controller.rb:19:in `show'
+
+Rendered rescues/_trace (48.3ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing HaikusController#show (for 127.0.0.1 at 2009-08-11 13:14:51) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mHaiku Load (0.3ms)[0m   [0;1mSELECT * FROM "haikus" WHERE ("haikus"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/show
+
+ActionView::TemplateError (undefined local variable or method `haiku' for #<ActionView::Base:0x2461278>) on line #3 of app/views/haikus/show.html.erb:
+1: 
+2:  	<h2>
+3:  	<!--<%= link_to haiku.movie.name, :controller=>"movies", :action=>"show", :id=>haiku.movie_id %>-->
+4:  	<%=h haiku.movie.name%>
+5:  	</h2>
+6:  	 by <%= link_to haiku.poet.name, :controller=>"poets", :action=>"show", :id=>haiku.poet_id %><br>
+
+    app/views/haikus/show.html.erb:3
+    app/controllers/haikus_controller.rb:19:in `show'
+
+Rendered rescues/_trace (121.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing HaikusController#show (for 127.0.0.1 at 2009-08-11 13:15:10) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mHaiku Load (0.3ms)[0m   [0mSELECT * FROM "haikus" WHERE ("haikus"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/show
+
+ActionView::TemplateError (undefined local variable or method `haiku' for #<ActionView::Base:0x2591328>) on line #3 of app/views/haikus/show.html.erb:
+1: 
+2:  	<h2>
+3:  	<!--<%= link_to haiku.movie.name, :controller=>"movies", :action=>"show", :id=>haiku.movie_id %>
+4:  	<%=h haiku.movie.name%>-->
+5:  	</h2>
+6:  	 by <%= link_to haiku.poet.name, :controller=>"poets", :action=>"show", :id=>haiku.poet_id %><br>
+
+    app/views/haikus/show.html.erb:3
+    app/controllers/haikus_controller.rb:19:in `show'
+
+Rendered rescues/_trace (49.3ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing HaikusController#show (for 127.0.0.1 at 2009-08-11 13:15:21) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mHaiku Load (0.3ms)[0m   [0;1mSELECT * FROM "haikus" WHERE ("haikus"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/show
+
+ActionView::TemplateError (undefined local variable or method `haiku' for #<ActionView::Base:0x2403358>) on line #3 of app/views/haikus/show.html.erb:
+1: 
+2:  	<blockquote>
+3:     <%=h haiku.line1 %><br />
+4:     <%=h haiku.line2 %><br />
+5:     <%=h haiku.line3 %><br />
+6:     </blockquote>
+
+    app/views/haikus/show.html.erb:3
+    app/controllers/haikus_controller.rb:19:in `show'
+
+Rendered rescues/_trace (49.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-08-11 13:15:33) [GET]
+Rendering template within layouts/home
+Rendering home/index
+Rendered shared/_sidebar (0.4ms)
+Completed in 4ms (View: 2, DB: 0) | 200 OK [http://0.0.0.0/]
+
+
+Processing MoviesController#index (for 127.0.0.1 at 2009-08-11 13:15:35) [GET]
+  [4;35;1mMovie Load (0.8ms)[0m   [0mSELECT * FROM "movies" [0m
+Rendering template within layouts/movies
+Rendering movies/index
+Rendered shared/_sidebar (0.5ms)
+Completed in 35ms (View: 29, DB: 1) | 200 OK [http://0.0.0.0/movies]
+
+
+Processing MoviesController#show (for 127.0.0.1 at 2009-08-11 13:15:36) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mMovie Load (0.3ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 1) [0m
+Rendering template within layouts/movies
+Rendering movies/show
+  [4;35;1mHaiku Load (0.5ms)[0m   [0mSELECT * FROM "haikus" WHERE ("haikus"."movie_id" = 1) [0m
+  [4;36;1mPoet Load (0.2ms)[0m   [0;1mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 24ms (View: 16, DB: 1) | 200 OK [http://0.0.0.0/movies/1]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-08-11 13:15:39) [GET]
+Rendering template within layouts/home
+Rendering home/index
+Rendered shared/_sidebar (0.4ms)
+Completed in 4ms (View: 2, DB: 0) | 200 OK [http://0.0.0.0/]
+
+
+Processing PoetsController#index (for 127.0.0.1 at 2009-08-11 13:15:40) [GET]
+  [4;35;1mPoet Load (0.6ms)[0m   [0mSELECT * FROM "poets" [0m
+Rendering template within layouts/poets
+Rendering poets/index
+Rendered shared/_sidebar (0.6ms)
+Completed in 49ms (View: 43, DB: 1) | 200 OK [http://0.0.0.0/poets]
+
+
+Processing PoetsController#show (for 127.0.0.1 at 2009-08-11 13:15:41) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPoet Load (0.3ms)[0m   [0;1mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/poets
+Rendering poets/show
+  [4;35;1mHaiku Load (1.0ms)[0m   [0mSELECT * FROM "haikus" WHERE ("haikus"."poet_id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+  [4;35;1mMovie Load (0.3ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 1) [0m
+  [4;36;1mMovie Load (0.3ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 2) [0m
+  [4;35;1mMovie Load (0.2ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 1) [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 84ms (View: 75, DB: 2) | 200 OK [http://0.0.0.0/poets/1]
+
+
+Processing MoviesController#show (for 127.0.0.1 at 2009-08-11 13:15:48) [GET]
+  Parameters: {"id"=>"8"}
+  [4;36;1mMovie Load (0.3ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+Rendering template within layouts/movies
+Rendering movies/show
+  [4;35;1mHaiku Load (0.4ms)[0m   [0mSELECT * FROM "haikus" WHERE ("haikus"."movie_id" = 8) [0m
+  [4;36;1mPoet Load (0.2ms)[0m   [0;1mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 24ms (View: 16, DB: 1) | 200 OK [http://0.0.0.0/movies/8]
+
+
+Processing PoetsController#show (for 127.0.0.1 at 2009-08-11 13:15:54) [GET]
+  Parameters: {"id"=>"4"}
+  [4;35;1mPoet Load (0.1ms)[0m   [0mSELECT * FROM "poets" WHERE ("poets"."id" = 4) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Poet with ID=4):
+  app/controllers/poets_controller.rb:16:in `show'
+
+Rendered rescues/_trace (37.7ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (not_found)
+
+
+Processing HaikusController#new (for 127.0.0.1 at 2009-08-11 13:16:01) [GET]
+  Parameters: {"id"=>"8"}
+Rendering template within layouts/haikus
+Rendering haikus/new
+  [4;36;1mMovie Load (0.6ms)[0m   [0;1mSELECT * FROM "movies" [0m
+  [4;35;1mPoet Load (0.3ms)[0m   [0mSELECT * FROM "poets" [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 26ms (View: 18, DB: 1) | 200 OK [http://0.0.0.0/haikus/new/8]
+
+
+Processing HaikusController#create (for 127.0.0.1 at 2009-08-11 13:16:10) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"CRcRMm0xIUtcrj+nmGqCYX8xguSYZ/+Fg/EzwyD0af4=", "haiku"=>{"line1"=>"1", "line2"=>"1", "poet_id"=>"1", "line3"=>"1", "movie_id"=>"2"}}
+  [4;36;1mHaiku Create (0.4ms)[0m   [0;1mINSERT INTO "haikus" ("line1", "line2", "updated_at", "poet_id", "line3", "movie_id", "email", "created_at") VALUES('1', '1', '2009-08-11 20:16:10', 1, '1', 2, NULL, '2009-08-11 20:16:10')[0m
+Redirected to http://0.0.0.0:3000/haikus/7
+Completed in 87ms (DB: 0) | 302 Found [http://0.0.0.0/haikus]
+
+
+Processing HaikusController#show (for 127.0.0.1 at 2009-08-11 13:16:10) [GET]
+  Parameters: {"id"=>"7"}
+  [4;35;1mHaiku Load (0.3ms)[0m   [0mSELECT * FROM "haikus" WHERE ("haikus"."id" = 7) [0m
+Rendering template within layouts/haikus
+Rendering haikus/show
+
+ActionView::TemplateError (undefined local variable or method `haiku' for #<ActionView::Base:0x263f8b0>) on line #3 of app/views/haikus/show.html.erb:
+1: 
+2:  	<blockquote>
+3:     <%=h haiku.line1 %><br />
+4:     <%=h haiku.line2 %><br />
+5:     <%=h haiku.line3 %><br />
+6:     </blockquote>
+
+    app/views/haikus/show.html.erb:3
+    app/controllers/haikus_controller.rb:19:in `show'
+
+Rendered rescues/_trace (49.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#show (for 127.0.0.1 at 2009-08-11 13:17:44) [GET]
+  Parameters: {"id"=>"7"}
+
+SyntaxError (/Users/anna/Sites/moviehaiku/app/controllers/haikus_controller.rb:18: syntax error, unexpected ')', expecting '}'
+... => :movie, :include => :poet) 
+                              ^):
+  
+
+Rendered rescues/_trace (34.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing HaikusController#show (for 127.0.0.1 at 2009-08-11 13:18:03) [GET]
+  Parameters: {"id"=>"7"}
+  [4;36;1mHaiku Load (0.0ms)[0m   [0;1mSQLite3::SQLException: no such column: haikus.include: SELECT * FROM "haikus" WHERE ("haikus"."include" = '--- :poet
+') [0m
+
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such column: haikus.include: SELECT * FROM "haikus" WHERE ("haikus"."include" = '--- :poet
+') ):
+  app/controllers/haikus_controller.rb:18:in `show'
+
+Rendered rescues/_trace (117.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing HaikusController#show (for 127.0.0.1 at 2009-08-11 13:18:37) [GET]
+  Parameters: {"id"=>"7"}
+  [4;35;1mHaiku Load (0.0ms)[0m   [0mSQLite3::SQLException: no such column: haikus.include: SELECT * FROM "haikus" WHERE ("haikus"."id" = '7' AND "haikus"."include" = '--- :poet
+') [0m
+
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such column: haikus.include: SELECT * FROM "haikus" WHERE ("haikus"."id" = '7' AND "haikus"."include" = '--- :poet
+') ):
+  app/controllers/haikus_controller.rb:18:in `show'
+
+Rendered rescues/_trace (43.5ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#show (for 127.0.0.1 at 2009-08-11 13:19:04) [GET]
+  Parameters: {"id"=>"7"}
+
+SyntaxError (/Users/anna/Sites/moviehaiku/app/controllers/haikus_controller.rb:18: syntax error, unexpected ')', expecting '}'):
+  
+
+Rendered rescues/_trace (34.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#show (for 127.0.0.1 at 2009-08-11 13:19:13) [GET]
+  Parameters: {"id"=>"7"}
+
+SyntaxError (/Users/anna/Sites/moviehaiku/app/controllers/haikus_controller.rb:18: syntax error, unexpected ')', expecting '}'):
+  
+
+Rendered rescues/_trace (34.7ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing HaikusController#show (for 127.0.0.1 at 2009-08-11 13:19:22) [GET]
+  Parameters: {"id"=>"7"}
+  [4;36;1mHaiku Load (0.6ms)[0m   [0;1mSELECT * FROM "haikus" WHERE ("haikus"."id" = '7') [0m
+  [4;35;1mPoet Load (0.2ms)[0m   [0mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/show
+
+ActionView::TemplateError (undefined local variable or method `haiku' for #<ActionView::Base:0x25a8578>) on line #3 of app/views/haikus/show.html.erb:
+1: 
+2:  	<blockquote>
+3:     <%=h haiku.line1 %><br />
+4:     <%=h haiku.line2 %><br />
+5:     <%=h haiku.line3 %><br />
+6:     </blockquote>
+
+    app/views/haikus/show.html.erb:3
+    app/controllers/haikus_controller.rb:19:in `show'
+
+Rendered rescues/_trace (48.7ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-08-11 14:37:58) [GET]
+Rendering template within layouts/home
+Rendering home/index
+Rendered shared/_sidebar (0.4ms)
+Completed in 4ms (View: 2, DB: 0) | 200 OK [http://0.0.0.0/]
+
+
+Processing HaikusController#index (for 127.0.0.1 at 2009-08-11 14:38:01) [GET]
+  [4;36;1mHaiku Load (1.0ms)[0m   [0;1mSELECT * FROM "haikus" [0m
+  [4;35;1mPoet Load (0.3ms)[0m   [0mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/index
+  [4;36;1mMovie Load (0.3ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 1) [0m
+  [4;35;1mMovie Load (0.3ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 2) [0m
+  [4;36;1mMovie Load (0.3ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 2) [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 128ms (View: 94, DB: 2) | 200 OK [http://0.0.0.0/haikus]
+
+
+Processing MoviesController#show (for 127.0.0.1 at 2009-08-11 14:38:02) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mMovie Load (0.3ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 1) [0m
+Rendering template within layouts/movies
+Rendering movies/show
+  [4;35;1mHaiku Load (0.4ms)[0m   [0mSELECT * FROM "haikus" WHERE ("haikus"."movie_id" = 1) [0m
+  [4;36;1mPoet Load (0.2ms)[0m   [0;1mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 26ms (View: 17, DB: 1) | 200 OK [http://0.0.0.0/movies/1]
+
+
+Processing HaikusController#show (for 127.0.0.1 at 2009-08-11 14:38:08) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mHaiku Load (0.7ms)[0m   [0mSELECT * FROM "haikus" WHERE ("haikus"."id" = '1') [0m
+  [4;36;1mPoet Load (0.3ms)[0m   [0;1mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/show
+
+ActionView::TemplateError (undefined local variable or method `haiku' for #<ActionView::Base:0x25a0738>) on line #3 of app/views/haikus/show.html.erb:
+1: 
+2:  	<blockquote>
+3:     <%=h haiku.line1 %><br />
+4:     <%=h haiku.line2 %><br />
+5:     <%=h haiku.line3 %><br />
+6:     </blockquote>
+
+    app/views/haikus/show.html.erb:3
+    app/controllers/haikus_controller.rb:19:in `show'
+
+Rendered rescues/_trace (49.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing HaikusController#show (for 127.0.0.1 at 2009-08-11 14:40:49) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mHaiku Load (0.3ms)[0m   [0mSELECT * FROM "haikus" WHERE ("haikus"."id" = 1) [0m
+  [4;36;1mPoet Load (0.2ms)[0m   [0;1mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/show
+
+ActionView::TemplateError (undefined local variable or method `haiku' for #<ActionView::Base:0x2412d80>) on line #3 of app/views/haikus/show.html.erb:
+1: 
+2:  	<blockquote>
+3:     <%=h haiku.line1 %><br />
+4:     <%=h haiku.line2 %><br />
+5:     <%=h haiku.line3 %><br />
+6:     </blockquote>
+
+    app/views/haikus/show.html.erb:3
+    app/controllers/haikus_controller.rb:19:in `show'
+
+Rendered rescues/_trace (50.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing HaikusController#show (for 127.0.0.1 at 2009-08-11 14:41:01) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mHaiku Load (0.3ms)[0m   [0mSELECT * FROM "haikus" WHERE ("haikus"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/show
+
+ActionView::TemplateError (undefined local variable or method `haiku' for #<ActionView::Base:0x252fdbc>) on line #3 of app/views/haikus/show.html.erb:
+1: 
+2:  	<blockquote>
+3:     <%=h haiku.line1 %><br />
+4:     <%=h haiku.line2 %><br />
+5:     <%=h haiku.line3 %><br />
+6:     </blockquote>
+
+    app/views/haikus/show.html.erb:3
+    app/controllers/haikus_controller.rb:19:in `show'
+
+Rendered rescues/_trace (49.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing HaikusController#show (for 127.0.0.1 at 2009-08-11 14:41:43) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mHaiku Load (0.3ms)[0m   [0;1mSELECT * FROM "haikus" WHERE ("haikus"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/show
+
+ActionView::TemplateError (undefined local variable or method `haiku' for #<ActionView::Base:0x23c5ff8>) on line #4 of app/views/haikus/show.html.erb:
+1: 
+2:  	<blockquote>
+3:     <%=h @haiku.line1 %><br />
+4:     <%=h haiku.line2 %><br />
+5:     <%=h haiku.line3 %><br />
+6:     </blockquote>
+7: 
+
+    app/views/haikus/show.html.erb:4
+    app/controllers/haikus_controller.rb:19:in `show'
+
+Rendered rescues/_trace (48.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing HaikusController#show (for 127.0.0.1 at 2009-08-11 14:42:18) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mHaiku Load (0.3ms)[0m   [0mSELECT * FROM "haikus" WHERE ("haikus"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/show
+Rendered shared/_sidebar (0.4ms)
+Completed in 14ms (View: 7, DB: 0) | 200 OK [http://0.0.0.0/haikus/1]
+
+
+Processing HaikusController#show (for 127.0.0.1 at 2009-08-11 14:42:50) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mHaiku Load (0.3ms)[0m   [0;1mSELECT * FROM "haikus" WHERE ("haikus"."id" = 1) [0m
+  [4;35;1mPoet Load (0.2ms)[0m   [0mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/show
+Rendered shared/_sidebar (0.4ms)
+Completed in 15ms (View: 2, DB: 0) | 200 OK [http://0.0.0.0/haikus/1]
+
+
+Processing HaikusController#show (for 127.0.0.1 at 2009-08-11 14:44:17) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mHaiku Load (0.3ms)[0m   [0;1mSELECT * FROM "haikus" WHERE ("haikus"."id" = 1) [0m
+  [4;35;1mPoet Load (0.2ms)[0m   [0mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/show
+  [4;36;1mMovie Load (0.3ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 1) [0m
+
+ActionView::TemplateError (undefined method `year' for #<Haiku:0x2429698>) on line #1 of app/views/haikus/show.html.erb:
+1: <h1> <%=h @haiku.movie %> (   <%=h @haiku.year %> )</h1>
+2: ...<%= link_to "Write one", :controller=>"haikus", :action=>"new" %>
+3: ...
+4:  	<blockquote>
+
+    app/views/haikus/show.html.erb:1
+    app/controllers/haikus_controller.rb:19:in `show'
+
+Rendered rescues/_trace (120.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing HaikusController#show (for 127.0.0.1 at 2009-08-11 14:44:33) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mHaiku Load (0.3ms)[0m   [0mSELECT * FROM "haikus" WHERE ("haikus"."id" = 1) [0m
+  [4;36;1mPoet Load (0.2ms)[0m   [0;1mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/show
+  [4;35;1mMovie Load (0.3ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 1) [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 25ms (View: 11, DB: 1) | 200 OK [http://0.0.0.0/haikus/1]
+
+
+Processing HaikusController#show (for 127.0.0.1 at 2009-08-11 14:44:43) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mHaiku Load (0.3ms)[0m   [0;1mSELECT * FROM "haikus" WHERE ("haikus"."id" = 1) [0m
+  [4;35;1mPoet Load (0.2ms)[0m   [0mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/show
+  [4;36;1mMovie Load (0.3ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 1) [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 25ms (View: 11, DB: 1) | 200 OK [http://0.0.0.0/haikus/1]
+
+
+Processing HaikusController#show (for 127.0.0.1 at 2009-08-11 14:45:14) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mHaiku Load (0.3ms)[0m   [0mSELECT * FROM "haikus" WHERE ("haikus"."id" = 1) [0m
+  [4;36;1mPoet Load (0.2ms)[0m   [0;1mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/show
+  [4;35;1mMovie Load (0.3ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 1) [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 25ms (View: 11, DB: 1) | 200 OK [http://0.0.0.0/haikus/1]
+
+
+Processing HaikusController#show (for 127.0.0.1 at 2009-08-11 14:45:59) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mHaiku Load (0.4ms)[0m   [0;1mSELECT * FROM "haikus" WHERE ("haikus"."id" = 1) [0m
+  [4;35;1mPoet Load (0.3ms)[0m   [0mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/show
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.aff_url) on line #3 of app/views/haikus/show.html.erb:
+1: <div id="movie image" style="text-align:right;float:right;border:1px solid gray;padding:5px;margin:5px;">
+2:   
+3:  <a href="<%=h @movie.aff_url%>"><%= image_tag(@movie.img_url, :border=>0)  %></a>
+4: </div>
+5: <h1> <%=h @haiku.movie.name %> (   <%=h @haiku.movie.year %> )</h1>
+6: ...<%= link_to "Write one", :controller=>"haikus", :action=>"new" %>
+
+    app/views/haikus/show.html.erb:3
+    app/controllers/haikus_controller.rb:19:in `show'
+
+Rendered rescues/_trace (48.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing HaikusController#show (for 127.0.0.1 at 2009-08-11 14:46:08) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mHaiku Load (0.3ms)[0m   [0;1mSELECT * FROM "haikus" WHERE ("haikus"."id" = 1) [0m
+  [4;35;1mPoet Load (0.2ms)[0m   [0mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/show
+  [4;36;1mMovie Load (0.3ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 1) [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 25ms (View: 12, DB: 1) | 200 OK [http://0.0.0.0/haikus/1]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-08-11 14:46:18) [GET]
+Rendering template within layouts/home
+Rendering home/index
+Rendered shared/_sidebar (0.4ms)
+Completed in 4ms (View: 2, DB: 0) | 200 OK [http://0.0.0.0/]
+
+
+Processing MoviesController#index (for 127.0.0.1 at 2009-08-11 14:46:20) [GET]
+  [4;35;1mMovie Load (0.8ms)[0m   [0mSELECT * FROM "movies" [0m
+Rendering template within layouts/movies
+Rendering movies/index
+Rendered shared/_sidebar (0.5ms)
+Completed in 12ms (View: 6, DB: 1) | 200 OK [http://0.0.0.0/movies]
+
+
+Processing MoviesController#show (for 127.0.0.1 at 2009-08-11 14:46:21) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mMovie Load (0.3ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 1) [0m
+Rendering template within layouts/movies
+Rendering movies/show
+  [4;35;1mHaiku Load (0.4ms)[0m   [0mSELECT * FROM "haikus" WHERE ("haikus"."movie_id" = 1) [0m
+  [4;36;1mPoet Load (0.2ms)[0m   [0;1mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 24ms (View: 16, DB: 1) | 200 OK [http://0.0.0.0/movies/1]
+
+
+Processing PoetsController#index (for 127.0.0.1 at 2009-08-11 14:46:32) [GET]
+  [4;35;1mPoet Load (0.6ms)[0m   [0mSELECT * FROM "poets" [0m
+Rendering template within layouts/poets
+Rendering poets/index
+Rendered shared/_sidebar (0.4ms)
+Completed in 12ms (View: 6, DB: 1) | 200 OK [http://0.0.0.0/poets]
+
+
+Processing PoetsController#show (for 127.0.0.1 at 2009-08-11 14:46:36) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPoet Load (0.2ms)[0m   [0;1mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/poets
+Rendering poets/show
+  [4;35;1mHaiku Load (0.8ms)[0m   [0mSELECT * FROM "haikus" WHERE ("haikus"."poet_id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+  [4;35;1mMovie Load (0.3ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 1) [0m
+  [4;36;1mMovie Load (0.3ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 2) [0m
+  [4;35;1mMovie Load (0.2ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 2) [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 28ms (View: 20, DB: 2) | 200 OK [http://0.0.0.0/poets/1]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-08-11 14:46:41) [GET]
+Rendering template within layouts/home
+Rendering home/index
+Rendered shared/_sidebar (0.4ms)
+Completed in 4ms (View: 2, DB: 0) | 200 OK [http://0.0.0.0/]

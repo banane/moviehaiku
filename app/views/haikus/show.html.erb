@@ -1,34 +1,17 @@
-<p>
-  <b>Poet:</b>
-  <%= @haiku.poet%>
-</p>
+<div id="movie image" style="text-align:right;float:right;border:1px solid gray;padding:5px;margin:5px;">
+  
+ <a href="<%=h @haiku.movie.aff_url%>"><%= image_tag(@haiku.movie.img_url, :border=>0)  %></a>
+</div>
+<h1> <%=h @haiku.movie.name %> (   <%=h @haiku.movie.year %> )</h1>
+...<%= link_to "Write one", :controller=>"haikus", :action=>"new" %>
+...
+ 	<blockquote>
+    <%=h @haiku.line1 %><br />
+    <%=h @haiku.line2 %><br />
+    <%=h @haiku.line3 %><br />
+    </blockquote>
 
-<p>
-  <b>Line1:</b>
-  <%=h @haiku.line1 %>
-</p>
-
-<p>
-  <b>Line2:</b>
-  <%=h @haiku.line2 %>
-</p>
-
-<p>
-  <b>Line3:</b>
-  <%=h @haiku.line3 %>
-</p>
-
-<p>
-  <b>Email:</b>
-  <%=h @haiku.email %>
-</p>
-
-<p>
-  <b>Movie:</b>
-  <%= @haiku.movie %>
-</p>
-
-
-<%= link_to 'Edit', edit_haiku_path(@haiku) %> |
+<!--<%= link_to 'Edit', edit_haiku_path(@haiku) %> |
 <%= link_to 'Back', haikus_path %>
+-->
 <%= link_to 'Home', :controller=>"home"%>
