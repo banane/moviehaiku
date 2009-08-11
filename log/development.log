@@ -27685,3 +27685,39 @@ Rendering template within layouts/home
 Rendering home/index
 Rendered shared/_sidebar (0.4ms)
 Completed in 4ms (View: 2, DB: 0) | 200 OK [http://0.0.0.0/]
+
+
+Processing HaikusController#index (for 127.0.0.1 at 2009-08-11 14:56:40) [GET]
+  [4;35;1mHaiku Load (1.2ms)[0m   [0mSELECT * FROM "haikus" [0m
+  [4;36;1mPoet Load (0.3ms)[0m   [0;1mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/index
+  [4;35;1mMovie Load (0.3ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 1) [0m
+  [4;36;1mMovie Load (0.3ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 2) [0m
+  [4;35;1mMovie Load (0.3ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 2) [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 28ms (View: 13, DB: 2) | 200 OK [http://0.0.0.0/haikus]
+  [4;36;1mHaiku Load (0.3ms)[0m   [0;1mSELECT * FROM "haikus" WHERE ("haikus"."id" = 3) [0m
+  [4;35;1mHaiku Load (0.5ms)[0m   [0mSELECT * FROM "haikus" WHERE ("haikus"."id" = 4) [0m
+  [4;36;1mHaiku Load (0.6ms)[0m   [0;1mSELECT * FROM "haikus" WHERE ("haikus"."id" = 5) [0m
+  [4;35;1mHaiku Destroy (1.0ms)[0m   [0mDELETE FROM "haikus" WHERE "id" = 5[0m
+  [4;36;1mHaiku Load (0.3ms)[0m   [0;1mSELECT * FROM "haikus" WHERE ("haikus"."id" = 5) [0m
+  [4;35;1mHaiku Load (0.5ms)[0m   [0mSELECT * FROM "haikus" WHERE ("haikus"."id" = 6) [0m
+  [4;36;1mHaiku Destroy (0.8ms)[0m   [0;1mDELETE FROM "haikus" WHERE "id" = 6[0m
+  [4;35;1mHaiku Load (0.6ms)[0m   [0mSELECT * FROM "haikus" WHERE ("haikus"."id" = 7) [0m
+  [4;36;1mHaiku Destroy (0.5ms)[0m   [0;1mDELETE FROM "haikus" WHERE "id" = 7[0m
+
+
+Processing HaikusController#index (for 127.0.0.1 at 2009-08-11 14:59:43) [GET]
+  [4;35;1mHaiku Load (0.8ms)[0m   [0mSELECT * FROM "haikus" [0m
+  [4;36;1mPoet Load (0.2ms)[0m   [0;1mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/index
+  [4;35;1mMovie Load (0.3ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 1) [0m
+  [4;36;1mMovie Load (0.3ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 2) [0m
+  [4;35;1mMovie Load (0.2ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 25ms (View: 10, DB: 2) | 200 OK [http://0.0.0.0/haikus]
