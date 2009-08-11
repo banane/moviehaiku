@@ -27721,3 +27721,83 @@ Rendering haikus/index
   [4;35;1mMovie Load (0.2ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
 Rendered shared/_sidebar (0.4ms)
 Completed in 25ms (View: 10, DB: 2) | 200 OK [http://0.0.0.0/haikus]
+
+
+Processing PoetsController#index (for 127.0.0.1 at 2009-08-11 15:05:50) [GET]
+  [4;36;1mPoet Load (0.6ms)[0m   [0;1mSELECT * FROM "poets" [0m
+Rendering template within layouts/poets
+Rendering poets/index
+Rendered shared/_sidebar (0.4ms)
+Completed in 15ms (View: 9, DB: 1) | 200 OK [http://0.0.0.0/poets]
+
+
+Processing PoetsController#index (for 127.0.0.1 at 2009-08-11 15:06:04) [GET]
+  [4;35;1mPoet Load (0.7ms)[0m   [0mSELECT * FROM "poets" [0m
+Rendering template within layouts/poets
+Rendering poets/index
+Rendered shared/_sidebar (0.4ms)
+Completed in 12ms (View: 6, DB: 1) | 200 OK [http://0.0.0.0/poets]
+
+
+Processing HaikusController#index (for 127.0.0.1 at 2009-08-11 15:06:08) [GET]
+  [4;36;1mHaiku Load (0.8ms)[0m   [0;1mSELECT * FROM "haikus" [0m
+  [4;35;1mPoet Load (0.2ms)[0m   [0mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/index
+  [4;36;1mMovie Load (0.3ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 1) [0m
+  [4;35;1mMovie Load (0.3ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 2) [0m
+  [4;36;1mMovie Load (0.2ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 24ms (View: 10, DB: 2) | 200 OK [http://0.0.0.0/haikus]
+
+
+Processing MoviesController#index (for 127.0.0.1 at 2009-08-11 15:06:11) [GET]
+  [4;35;1mMovie Load (1.0ms)[0m   [0mSELECT * FROM "movies" [0m
+Rendering template within layouts/movies
+Rendering movies/index
+Rendered shared/_sidebar (0.4ms)
+Completed in 86ms (View: 6, DB: 1) | 200 OK [http://0.0.0.0/movies]
+
+
+Processing MoviesController#index (for 127.0.0.1 at 2009-08-11 15:06:46) [GET]
+  [4;36;1mMovie Load (0.9ms)[0m   [0;1mSELECT * FROM "movies" [0m
+Rendering template within layouts/movies
+Rendering movies/index
+Rendered shared/_sidebar (0.4ms)
+Completed in 17ms (View: 10, DB: 1) | 200 OK [http://0.0.0.0/movies]
+
+
+Processing MoviesController#index (for 127.0.0.1 at 2009-08-11 15:07:01) [GET]
+  [4;35;1mMovie Load (0.9ms)[0m   [0mSELECT * FROM "movies" [0m
+Rendering template within layouts/movies
+Rendering movies/index
+Rendered shared/_sidebar (0.4ms)
+Completed in 17ms (View: 10, DB: 1) | 200 OK [http://0.0.0.0/movies]
+
+
+Processing PoetsController#index (for 127.0.0.1 at 2009-08-11 15:07:06) [GET]
+  [4;36;1mPoet Load (0.6ms)[0m   [0;1mSELECT * FROM "poets" [0m
+Rendering template within layouts/poets
+Rendering poets/index
+Rendered shared/_sidebar (0.4ms)
+Completed in 12ms (View: 6, DB: 1) | 200 OK [http://0.0.0.0/poets]
+
+
+Processing MoviesController#index (for 127.0.0.1 at 2009-08-11 15:07:08) [GET]
+  [4;35;1mMovie Load (0.8ms)[0m   [0mSELECT * FROM "movies" [0m
+Rendering template within layouts/movies
+Rendering movies/index
+Rendered shared/_sidebar (0.5ms)
+Completed in 12ms (View: 6, DB: 1) | 200 OK [http://0.0.0.0/movies]
+
+
+Processing HaikusController#index (for 127.0.0.1 at 2009-08-11 15:07:09) [GET]
+  [4;36;1mHaiku Load (0.8ms)[0m   [0;1mSELECT * FROM "haikus" [0m
+  [4;35;1mPoet Load (0.2ms)[0m   [0mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/index
+  [4;36;1mMovie Load (0.3ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 1) [0m
+  [4;35;1mMovie Load (0.3ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 2) [0m
+  [4;36;1mMovie Load (0.3ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 26ms (View: 13, DB: 2) | 200 OK [http://0.0.0.0/haikus]
