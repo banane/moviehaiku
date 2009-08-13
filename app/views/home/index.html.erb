@@ -1,12 +1,10 @@
 
 
           <h1><%= link_to "Haikus", :controller=> "haikus" %></h1>
-       	<ul>
-       	<%= @haiku = Haiku.all(:order=>"created_at desc", :include=>:movie, :include=>:poet, :limit=>10) %>
-       	
-       	<%= link_to @haiku.movie, :controller=>"haikus", :action=>"show", :id=>@haiku.id %> by <%=h @haiku.poet %>
+     <ul>
           	
           	</ul>
+         
           <h1><%= link_to "Movies", :controller=> "movies" %></h1>
          
   			<ul>
