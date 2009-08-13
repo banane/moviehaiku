@@ -40069,3 +40069,44 @@ Rendering home/index
   [4;35;1mMovie Load (0.3ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
 Rendered shared/_sidebar (0.7ms)
 Completed in 63ms (View: 48, DB: 1) | 200 OK [http://0.0.0.0/]
+
+
+Processing MoviesController#index (for 127.0.0.1 at 2009-08-13 00:46:19) [GET]
+  [4;36;1mMovie Load (1.5ms)[0m   [0;1mSELECT * FROM "movies" ORDER BY year DESC [0m
+Rendering template within layouts/movies
+Rendering movies/index
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "haikus" WHERE ("haikus".movie_id = 3) [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "haikus" WHERE ("haikus".movie_id = 8) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "haikus" WHERE ("haikus".movie_id = 8) [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "haikus" WHERE ("haikus".movie_id = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "haikus" WHERE ("haikus".movie_id = 1) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "haikus" WHERE ("haikus".movie_id = 2) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "haikus" WHERE ("haikus".movie_id = 2) [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 25ms (View: 16, DB: 2) | 200 OK [http://0.0.0.0/movies]
+
+
+Processing MoviesController#show (for 127.0.0.1 at 2009-08-13 00:46:21) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mHaiku Load (0.7ms)[0m   [0;1mSELECT * FROM "haikus" WHERE ("haikus"."movie_id" = '2') [0m
+  [4;35;1mPoet Load (0.4ms)[0m   [0mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/movies
+Rendering movies/show
+  [4;36;1mMovie Load (0.3ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 2) [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 25ms (View: 10, DB: 1) | 200 OK [http://0.0.0.0/movies/2]
+
+
+Processing MoviesController#index (for 127.0.0.1 at 2009-08-13 00:46:23) [GET]
+  [4;35;1mMovie Load (1.3ms)[0m   [0mSELECT * FROM "movies" ORDER BY year DESC [0m
+Rendering template within layouts/movies
+Rendering movies/index
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "haikus" WHERE ("haikus".movie_id = 3) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "haikus" WHERE ("haikus".movie_id = 8) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "haikus" WHERE ("haikus".movie_id = 8) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "haikus" WHERE ("haikus".movie_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "haikus" WHERE ("haikus".movie_id = 1) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "haikus" WHERE ("haikus".movie_id = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "haikus" WHERE ("haikus".movie_id = 2) [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 22ms (View: 14, DB: 2) | 200 OK [http://0.0.0.0/movies]
