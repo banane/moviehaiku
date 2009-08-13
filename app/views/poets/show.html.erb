@@ -1,26 +1,24 @@
-<p>
-Movie Haikus by <%=h @poet.name %>, Poet
-</p>
+
+	<h1>Haikus by <% @a = Poet.find(params[:id])%> <%= @a.name%></h1>
 
 
-<%  @haikus = Haiku.all(:conditions => {:poet_id => @poet.id}, :include => :movie, :include => :poet)  %>
- 
- 
+
 <% @haikus.each do |haiku|  %>
-	<h1><%= link_to haiku.movie.name, :controller=>"movies", :action=>"show", :id=>haiku.movie_id%></h1>
-	<blockquote>
+<div style="height:180px;">
+   <div id="movie image" style="height:150px;text-align:right;float:right;border:1px solid gray;padding:5px;margin:5px;">
+  
+     <a href="<%=h haiku.movie.aff_url%>"><%= image_tag(haiku.movie.img_url, :border=>0)  %></a>
+    </div>
+    <br /><h3><%= link_to haiku.movie.name, :controller=>"movies", :action=>"show", :id=>haiku.movie_id %> ( <%= haiku.movie.year %> )</h3>
+<blockquote>
+
   	 <%= haiku.line1 %>
   	 <br />
   	 <%= haiku.line2 %>
   	 <br />
   	 <%= haiku.line3 %>
   	 <br />
-  	 
-	</blockquote>  	 
-  	 
-  	 <% end %>
-<p> 
- 
-
-<!--<%= link_to 'Edit', edit_poet_path(@poet) %> |-->
-<%= link_to 'Back', poets_path %>
+  	 -- by <%= haiku.poet.name  %>
+</blockquote>  	 
+</div>
+<% end %>

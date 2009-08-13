@@ -1,19 +1,24 @@
-<% @haikus.each do |haiku| %>
- 	
- 	<h2>
- 	<%= link_to haiku.movie.name, :controller=>"movies", :action=>"show", :id=>haiku.movie_id %>
- 	<!--<%=h haiku.movie.name%>-->
- 	</h2>
- 	 by <%= link_to haiku.poet.name, :controller=>"poets", :action=>"show", :id=>haiku.poet_id %><br>
-    <blockquote>
-    <%=h haiku.line1 %><br />
-    <%=h haiku.line2 %><br />
-    <%=h haiku.line3 %><br />
-    </blockquote>
+<h1>All Haikus</h1>
 
+<% @haikus.each do |haiku|  %>
+<div style="height:180px;">
+   <div id="movie image" style="height:150px;text-align:right;float:right;border:1px solid gray;padding:5px;margin:5px;">
+  
+     <a href="<%=h haiku.movie.aff_url%>"><%= image_tag(haiku.movie.img_url, :border=>0)  %></a>
+    </div>
+    <br /><h3><%= haiku.movie.name %> ( <%= haiku.movie.year %> )</h3>
+<blockquote>
+
+  	 <%= haiku.line1 %>
+  	 <br />
+  	 <%= haiku.line2 %>
+  	 <br />
+  	 <%= haiku.line3 %>
+  	 <br />
+  	 -- by <%= link_to haiku.poet.name, :controller=>"poets", :action=>"show", :id=>haiku.poet_id  %>
+</blockquote>  	 
+</div>
 <% end %>
-
-<br />
 
 <%= link_to 'New haiku', new_haiku_path %>
 

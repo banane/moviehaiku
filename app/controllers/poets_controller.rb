@@ -13,11 +13,10 @@ class PoetsController < ApplicationController
   # GET /poets/1
   # GET /poets/1.xml
   def show
-    @poet = Poet.find(params[:id])
-
+    @haikus = Haiku.all(:conditions => {:poet_id => params[:id]}, :include => :movie, :include => :poet, :order => " created_at DESC ") 
     respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @poet }
+      format.html # index.html.erb
+      format.xml  { render :xml => @haikus }
     end
   end
 
