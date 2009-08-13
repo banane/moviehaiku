@@ -1,9 +1,17 @@
 
 
           <h1><%= link_to "Haikus", :controller=> "haikus" %></h1>
-     <ul>
-          	
-          	</ul>
+
+<div id="movie image" style="text-align:right;float:right;border:1px solid gray;padding:5px;margin:5px;">
+  
+ <%= link_to image_tag(@haiku.movie.img_url, :border=>0), :controller=>"haikus", :action=>"show", :id=>@haiku.id  %>
+</div>
+<blockquote>
+<%=h @haiku.line1%><br />
+<%=h @haiku.line2%><br />
+<%=h @haiku.line3%><br />
+-- by <%=h @haiku.poet.name %>
+</blockquote>
          
           <h1><%= link_to "Movies", :controller=> "movies" %></h1>
          

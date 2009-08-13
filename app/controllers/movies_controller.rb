@@ -2,7 +2,7 @@ class MoviesController < ApplicationController
   # GET /movies
   # GET /movies.xml
   def index
-    @movies = Movie.all
+    @movies = Movie.all(:order => " year DESC ")
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,13 +13,13 @@ class MoviesController < ApplicationController
   # GET /movies/1
   # GET /movies/1.xml
   def show
-    @movie = Movie.find(params[:id])
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @movie }
-    end
-  end
+     @haikus = Haiku.all(:conditions => {:movie_id => params[:id]}, :include => :movie, :include => :poet) 
+      respond_to do |format|
+        format.html # show.html.erb
+       format.xml  { render :xml =>  @haikus }      
+      end
+end
 
 
 

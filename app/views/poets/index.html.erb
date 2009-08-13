@@ -1,15 +1,9 @@
-<h1>Poets</h1>
-
 <ul>
 
 <% @poets.each do |poet| %>
- 	<li>
- 	<%= link_to poet.name, poet %>
- 	
-   <!-- <td><%=h poet.email %></td>
-    <td><%= link_to 'Show', poet %></td>
-    <td><%= link_to 'Edit', edit_poet_path(poet) %></td>
-  <%= link_to 'Destroy', poet, :confirm => 'Are you sure?', :method => :delete %></td>-->
+ 	<li><%= link_to poet.name, poet %> (
+<%= poet.haikus.count %> )
+  
   </li>
 <% end %>
 </ul>

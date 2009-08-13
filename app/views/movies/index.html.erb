@@ -2,11 +2,19 @@
 
 <ul>
 <% @movies.each do |movie| %>
-  <li><%= link_to movie.name, movie, :action => :show %>
-   ( <%=h movie.year %>)  (<%= link_to 'Edit', edit_movie_path(movie) %>)</li>
+  <li><%= link_to movie.name, movie, :action => :show %> 
+  
+   ( <%=h movie.year %>) 
+   <% 
+   if movie.haikus.count == 0 %>
+   		<%=	link_to "write one", :controller=>"haikus", :action=>"new"  %>
+   <%	else %>
+   ( <%=h	movie.haikus.count %> )
+   <% end %>
+   (<%= link_to 'Edit', edit_movie_path(movie) %>)</li>
 <% end %>
 </ul>
 
 <br />
 
-<%= link_to 'New movie', new_movie_path %>
+<%= link_to 'Add a movie', new_movie_path %>
