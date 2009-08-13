@@ -28285,3 +28285,86 @@ Rendering template within layouts/home
 Rendering home/index
 Rendered shared/_sidebar (0.4ms)
 Completed in 8ms (View: 6, DB: 0) | 200 OK [http://0.0.0.0/]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-08-12 20:50:10) [GET]
+Rendering template within layouts/home
+Rendering home/index
+Rendered shared/_sidebar (0.6ms)
+Completed in 7ms (View: 5, DB: 0) | 200 OK [http://0.0.0.0/]
+
+
+Processing HaikusController#index (for 127.0.0.1 at 2009-08-12 20:50:13) [GET]
+  [4;36;1mHaiku Load (23.6ms)[0m   [0;1mSELECT * FROM "haikus" [0m
+  [4;35;1mPoet Load (0.3ms)[0m   [0mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/index
+  [4;36;1mMovie Load (0.4ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 1) [0m
+  [4;35;1mMovie Load (0.4ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 2) [0m
+  [4;36;1mMovie Load (0.4ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+Rendered shared/_sidebar (0.6ms)
+Completed in 253ms (View: 116, DB: 25) | 200 OK [http://0.0.0.0/haikus]
+
+
+Processing MoviesController#show (for 127.0.0.1 at 2009-08-12 20:50:14) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mMovie Load (0.3ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 2) [0m
+Rendering template within layouts/movies
+Rendering movies/show
+  [4;36;1mHaiku Load (0.4ms)[0m   [0;1mSELECT * FROM "haikus" WHERE ("haikus"."movie_id" = 2) [0m
+  [4;35;1mPoet Load (0.3ms)[0m   [0mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendered shared/_sidebar (0.5ms)
+Completed in 79ms (View: 71, DB: 1) | 200 OK [http://0.0.0.0/movies/2]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-08-12 20:50:19) [GET]
+Rendering template within layouts/home
+Rendering home/index
+Rendered shared/_sidebar (0.4ms)
+Completed in 4ms (View: 2, DB: 0) | 200 OK [http://0.0.0.0/]
+
+
+Processing HaikusController#index (for 127.0.0.1 at 2009-08-12 20:51:23) [GET]
+  [4;36;1mHaiku Load (0.0ms)[0m   [0;1mSQLite3::SQLException: no such column: create_date: SELECT * FROM "haikus" ORDER BY create_date DESC[0m
+
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such column: create_date: SELECT * FROM "haikus"  ORDER BY create_date DESC):
+  app/controllers/haikus_controller.rb:5:in `index'
+
+Rendered rescues/_trace (45.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing HaikusController#index (for 127.0.0.1 at 2009-08-12 20:53:43) [GET]
+  [4;35;1mHaiku Load (0.0ms)[0m   [0mSQLite3::SQLException: near "at": syntax error: SELECT * FROM "haikus" ORDER BY created at DESC[0m
+
+ActiveRecord::StatementInvalid (SQLite3::SQLException: near "at": syntax error: SELECT * FROM "haikus"  ORDER BY created at DESC):
+  app/controllers/haikus_controller.rb:5:in `index'
+
+Rendered rescues/_trace (45.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing HaikusController#index (for 127.0.0.1 at 2009-08-12 20:53:50) [GET]
+  [4;36;1mHaiku Load (1.4ms)[0m   [0;1mSELECT * FROM "haikus" ORDER BY created_at DESC[0m
+  [4;35;1mPoet Load (0.2ms)[0m   [0mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/index
+  [4;36;1mMovie Load (0.3ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+  [4;35;1mMovie Load (0.3ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 2) [0m
+  [4;36;1mMovie Load (0.2ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 1) [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 25ms (View: 11, DB: 3) | 200 OK [http://0.0.0.0/haikus]
+
+
+Processing HaikusController#index (for 127.0.0.1 at 2009-08-12 20:54:42) [GET]
+  [4;35;1mHaiku Load (1.3ms)[0m   [0mSELECT * FROM "haikus" ORDER BY created_at DESC[0m
+  [4;36;1mPoet Load (0.3ms)[0m   [0;1mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/index
+  [4;35;1mMovie Load (0.4ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+  [4;36;1mMovie Load (0.3ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 2) [0m
+  [4;35;1mMovie Load (0.2ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 1) [0m
+Rendered shared/_sidebar (0.5ms)
+Completed in 130ms (View: 115, DB: 2) | 200 OK [http://0.0.0.0/haikus]

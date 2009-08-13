@@ -2,7 +2,7 @@ class HaikusController < ApplicationController
   # GET /haikus
   # GET /haikus.xml
   def index
-    @haikus = Haiku.all(:include => :movie, :include => :poet)
+    @haikus = Haiku.all(:include => :movie, :include => :poet, :order => "created_at DESC")
 
     respond_to do |format|
       format.html # index.html.erb
