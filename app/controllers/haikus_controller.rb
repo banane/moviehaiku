@@ -39,7 +39,7 @@ class HaikusController < ApplicationController
 
   # GET /haikus/1/edit
   def edit
-    @haiku = Haiku.find(params[:id])
+    @haiku = Haiku.find(params[:id], :include=>:movie, :include=>:poet)
   end
 
   # POST /haikus

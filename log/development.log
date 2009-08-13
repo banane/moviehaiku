@@ -40110,3 +40110,2147 @@ Rendering movies/index
   [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "haikus" WHERE ("haikus".movie_id = 2) [0m
 Rendered shared/_sidebar (0.4ms)
 Completed in 22ms (View: 14, DB: 2) | 200 OK [http://0.0.0.0/movies]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-08-13 01:05:32) [GET]
+  [4;35;1mHaiku Load (0.7ms)[0m   [0mSELECT * FROM "haikus" ORDER BY haikus.id DESC LIMIT 1[0m
+  [4;36;1mPoet Load (0.2ms)[0m   [0;1mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/home
+Rendering home/index
+  [4;35;1mMovie Load (0.3ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 22ms (View: 9, DB: 1) | 200 OK [http://0.0.0.0/]
+
+
+Processing HaikusController#index (for 127.0.0.1 at 2009-08-13 01:05:34) [GET]
+  [4;36;1mHaiku Load (1.3ms)[0m   [0;1mSELECT * FROM "haikus" ORDER BY created_at DESC[0m
+  [4;35;1mPoet Load (0.3ms)[0m   [0mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/index
+ERROR: compiling _run_erb_app47views47haikus47index46html46erb RAISED compile error
+/Users/anna/Sites/moviehaiku/app/views/haikus/index.html.erb:20: syntax error, unexpected ':', expecting ')'
+...ffer.concat(( link_to "edit" :controller=>"haikus", :action=...
+                              ^
+/Users/anna/Sites/moviehaiku/app/views/haikus/index.html.erb:20: syntax error, unexpected ',', expecting ')'
+... "edit" :controller=>"haikus", :action=>"edit", :id=>haiku.i...
+                              ^
+/Users/anna/Sites/moviehaiku/app/views/haikus/index.html.erb:20: syntax error, unexpected ',', expecting ')'
+...er=>"haikus", :action=>"edit", :id=>haiku.id ).to_s); @outpu...
+                              ^
+Function body:           def _run_erb_app47views47haikus47index46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "<h1>All Haikus</h1>\n"
+@output_buffer.concat "\n"
+ @haikus.each do |haiku|  ; @output_buffer.concat "\n"
+@output_buffer.concat "<div style=\"height:180px;\">\n"
+@output_buffer.concat "   <div id=\"movie image\" style=\"height:150px;text-align:right;float:right;border:1px solid gray;padding:5px;margin:5px;\">\n"
+@output_buffer.concat "  \n"
+@output_buffer.concat "     <a href=\""; @output_buffer.concat((h haiku.movie.aff_url).to_s); @output_buffer.concat "\">"; @output_buffer.concat(( image_tag(haiku.movie.img_url, :border=>0)  ).to_s); @output_buffer.concat "</a>\n"
+@output_buffer.concat "    </div>\n"
+@output_buffer.concat "    <br /><h3>"; @output_buffer.concat(( haiku.movie.name ).to_s); @output_buffer.concat " ( "; @output_buffer.concat(( haiku.movie.year ).to_s); @output_buffer.concat " )</h3>\n"
+@output_buffer.concat "<blockquote>\n"
+@output_buffer.concat "\n"
+@output_buffer.concat "  \t "; @output_buffer.concat(( haiku.line1 ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  \t <br />\n"
+@output_buffer.concat "  \t "; @output_buffer.concat(( haiku.line2 ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  \t <br />\n"
+@output_buffer.concat "  \t "; @output_buffer.concat(( haiku.line3 ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  \t <br />\n"
+@output_buffer.concat "  \t -- by "; @output_buffer.concat(( link_to haiku.poet.name, :controller=>"poets", :action=>"show", :id=>haiku.poet_id  ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "</blockquote>  \t \n"
+@output_buffer.concat "( if this is yours - "; @output_buffer.concat(( link_to "edit" :controller=>"haikus", :action=>"edit", :id=>haiku.id ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "</div>\n"
+@output_buffer.concat "\n"
+ end ; @output_buffer.concat "\n"
+@output_buffer.concat "\n"
+@output_buffer.concat(( link_to 'New haiku', new_haiku_path ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "\n"
+@output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /Users/anna/Sites/moviehaiku/app/views/haikus/index.html.erb:30:in `compile!'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/renderable.rb:61:in `compile'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/renderable.rb:28:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/template.rb:194:in `render_template'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:260:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:343:in `_render_with_layout'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:257:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1241:in `render_for_file'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:943:in `render_without_benchmark'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:51:in `render'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:51:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:135:in `send'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:135:in `custom'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:179:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:179:in `respond'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:173:in `each'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:173:in `respond'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:107:in `respond_to'
+/Users/anna/Sites/moviehaiku/app/controllers/haikus_controller.rb:7:in `index'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1322:in `send'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1322:in `perform_action_without_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:617:in `call_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/flash.rb:141:in `perform_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:523:in `send'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:523:in `process_without_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:606:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:391:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:386:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/routing/route_set.rb:433:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:88:in `dispatch'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:111:in `_call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:82:in `initialize'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:29:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:29:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:9:in `cache'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:28:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/head.rb:9:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/methodoverride.rb:24:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/params_parser.rb:15:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/rewindable_input.rb:25:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/session/cookie_store.rb:93:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/reloader.rb:9:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/failsafe.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `synchronize'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:106:in `call'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/rails/rack/static.rb:31:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:46:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `each'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `call'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/rails/rack/log_tailer.rb:17:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/content_length.rb:13:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/chunked.rb:15:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:61:in `process'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:159:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `each'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `run'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:34:in `run'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/commands/server.rb:111
+/Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+/Users/anna/Sites/moviehaiku/app/views/haikus/index.html.erb:20: syntax error, unexpected ':', expecting ')'
+...ffer.concat(( link_to "edit" :controller=>"haikus", :action=...
+                              ^
+/Users/anna/Sites/moviehaiku/app/views/haikus/index.html.erb:20: syntax error, unexpected ',', expecting ')'
+... "edit" :controller=>"haikus", :action=>"edit", :id=>haiku.i...
+                              ^
+/Users/anna/Sites/moviehaiku/app/views/haikus/index.html.erb:20: syntax error, unexpected ',', expecting ')'
+...er=>"haikus", :action=>"edit", :id=>haiku.id ).to_s); @outpu...
+                              ^) on line #20 of app/views/haikus/index.html.erb:
+17:   	 <br />
+18:   	 -- by <%= link_to haiku.poet.name, :controller=>"poets", :action=>"show", :id=>haiku.poet_id  %>
+19: </blockquote>  	 
+20: ( if this is yours - <%= link_to "edit" :controller=>"haikus", :action=>"edit", :id=>haiku.id %>
+21: </div>
+22: 
+23: <% end %>
+
+    app/views/haikus/index.html.erb:30:in `compile!'
+    app/controllers/haikus_controller.rb:7:in `index'
+
+Rendered rescues/_trace (49.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing HaikusController#index (for 127.0.0.1 at 2009-08-13 01:05:54) [GET]
+  [4;36;1mHaiku Load (1.3ms)[0m   [0;1mSELECT * FROM "haikus" ORDER BY created_at DESC[0m
+  [4;35;1mPoet Load (0.2ms)[0m   [0mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/index
+ERROR: compiling _run_erb_app47views47haikus47index46html46erb RAISED compile error
+/Users/anna/Sites/moviehaiku/app/views/haikus/index.html.erb:20: syntax error, unexpected ':', expecting ')'
+...ffer.concat(( link_to "edit" :controller=>"haikus", :action=...
+                              ^
+/Users/anna/Sites/moviehaiku/app/views/haikus/index.html.erb:20: syntax error, unexpected ',', expecting ')'
+... "edit" :controller=>"haikus", :action=>"edit", :id=>haiku.i...
+                              ^
+/Users/anna/Sites/moviehaiku/app/views/haikus/index.html.erb:20: syntax error, unexpected ',', expecting ')'
+...er=>"haikus", :action=>"edit", :id=>haiku.id ).to_s); @outpu...
+                              ^
+Function body:           def _run_erb_app47views47haikus47index46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "<h1>All Haikus</h1>\n"
+@output_buffer.concat "\n"
+ @haikus.each do |haiku|  ; @output_buffer.concat "\n"
+@output_buffer.concat "<div style=\"height:180px;\">\n"
+@output_buffer.concat "   <div id=\"movie image\" style=\"height:150px;text-align:right;float:right;border:1px solid gray;padding:5px;margin:5px;\">\n"
+@output_buffer.concat "  \n"
+@output_buffer.concat "     <a href=\""; @output_buffer.concat((h haiku.movie.aff_url).to_s); @output_buffer.concat "\">"; @output_buffer.concat(( image_tag(haiku.movie.img_url, :border=>0)  ).to_s); @output_buffer.concat "</a>\n"
+@output_buffer.concat "    </div>\n"
+@output_buffer.concat "    <br /><h3>"; @output_buffer.concat(( haiku.movie.name ).to_s); @output_buffer.concat " ( "; @output_buffer.concat(( haiku.movie.year ).to_s); @output_buffer.concat " )</h3>\n"
+@output_buffer.concat "<blockquote>\n"
+@output_buffer.concat "\n"
+@output_buffer.concat "  \t "; @output_buffer.concat(( haiku.line1 ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  \t <br />\n"
+@output_buffer.concat "  \t "; @output_buffer.concat(( haiku.line2 ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  \t <br />\n"
+@output_buffer.concat "  \t "; @output_buffer.concat(( haiku.line3 ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  \t <br />\n"
+@output_buffer.concat "  \t -- by "; @output_buffer.concat(( link_to haiku.poet.name, :controller=>"poets", :action=>"show", :id=>haiku.poet_id  ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "</blockquote>  \t \n"
+@output_buffer.concat "( if this is yours - "; @output_buffer.concat(( link_to "edit" :controller=>"haikus", :action=>"edit", :id=>haiku.id ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "</div>\n"
+@output_buffer.concat "\n"
+ end ; @output_buffer.concat "\n"
+@output_buffer.concat "\n"
+@output_buffer.concat(( link_to 'New haiku', new_haiku_path ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "\n"
+@output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /Users/anna/Sites/moviehaiku/app/views/haikus/index.html.erb:30:in `compile!'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/renderable.rb:61:in `compile'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/renderable.rb:28:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/template.rb:194:in `render_template'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:260:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:343:in `_render_with_layout'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:257:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1241:in `render_for_file'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:943:in `render_without_benchmark'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:51:in `render'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:51:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:135:in `send'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:135:in `custom'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:179:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:179:in `respond'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:173:in `each'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:173:in `respond'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:107:in `respond_to'
+/Users/anna/Sites/moviehaiku/app/controllers/haikus_controller.rb:7:in `index'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1322:in `send'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1322:in `perform_action_without_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:617:in `call_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/flash.rb:141:in `perform_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:523:in `send'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:523:in `process_without_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:606:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:391:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:386:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/routing/route_set.rb:433:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:88:in `dispatch'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:111:in `_call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:82:in `initialize'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:29:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:29:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:9:in `cache'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:28:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/head.rb:9:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/methodoverride.rb:24:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/params_parser.rb:15:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/rewindable_input.rb:25:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/session/cookie_store.rb:93:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/reloader.rb:9:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/failsafe.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `synchronize'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:106:in `call'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/rails/rack/static.rb:31:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:46:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `each'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `call'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/rails/rack/log_tailer.rb:17:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/content_length.rb:13:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/chunked.rb:15:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:61:in `process'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:159:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `each'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `run'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:34:in `run'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/commands/server.rb:111
+/Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+/Users/anna/Sites/moviehaiku/app/views/haikus/index.html.erb:20: syntax error, unexpected ':', expecting ')'
+...ffer.concat(( link_to "edit" :controller=>"haikus", :action=...
+                              ^
+/Users/anna/Sites/moviehaiku/app/views/haikus/index.html.erb:20: syntax error, unexpected ',', expecting ')'
+... "edit" :controller=>"haikus", :action=>"edit", :id=>haiku.i...
+                              ^
+/Users/anna/Sites/moviehaiku/app/views/haikus/index.html.erb:20: syntax error, unexpected ',', expecting ')'
+...er=>"haikus", :action=>"edit", :id=>haiku.id ).to_s); @outpu...
+                              ^) on line #20 of app/views/haikus/index.html.erb:
+17:   	 <br />
+18:   	 -- by <%= link_to haiku.poet.name, :controller=>"poets", :action=>"show", :id=>haiku.poet_id  %>
+19: </blockquote>  	 
+20: ( if this is yours - <%= link_to "edit" :controller=>"haikus", :action=>"edit", :id=>haiku.id %>
+21: </div>
+22: 
+23: <% end %>
+
+    app/views/haikus/index.html.erb:30:in `compile!'
+    app/controllers/haikus_controller.rb:7:in `index'
+
+Rendered rescues/_trace (49.4ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing HaikusController#index (for 127.0.0.1 at 2009-08-13 01:06:46) [GET]
+  [4;36;1mHaiku Load (1.3ms)[0m   [0;1mSELECT * FROM "haikus" ORDER BY created_at DESC[0m
+  [4;35;1mPoet Load (0.2ms)[0m   [0mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/index
+  [4;36;1mMovie Load (0.4ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+  [4;35;1mMovie Load (0.3ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 2) [0m
+  [4;36;1mMovie Load (0.3ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 1) [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 105ms (View: 90, DB: 3) | 200 OK [http://0.0.0.0/haikus]
+
+
+Processing HaikusController#index (for 127.0.0.1 at 2009-08-13 01:06:58) [GET]
+  [4;35;1mHaiku Load (1.4ms)[0m   [0mSELECT * FROM "haikus" ORDER BY created_at DESC[0m
+  [4;36;1mPoet Load (0.4ms)[0m   [0;1mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/index
+  [4;35;1mMovie Load (0.3ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+  [4;36;1mMovie Load (0.3ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 2) [0m
+  [4;35;1mMovie Load (0.2ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 1) [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 33ms (View: 16, DB: 3) | 200 OK [http://0.0.0.0/haikus]
+
+
+Processing HaikusController#edit (for 127.0.0.1 at 2009-08-13 01:07:01) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mHaiku Load (0.3ms)[0m   [0;1mSELECT * FROM "haikus" WHERE ("haikus"."id" = 4) [0m
+Rendering template within layouts/haikus
+Rendering haikus/edit
+  [4;35;1mPoet Load (0.4ms)[0m   [0mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+  [4;36;1mMovie Load (0.3ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 51ms (View: 44, DB: 1) | 200 OK [http://0.0.0.0/haikus/4/edit]
+
+
+Processing HaikusController#edit (for 127.0.0.1 at 2009-08-13 01:07:36) [GET]
+  Parameters: {"id"=>"4"}
+  [4;35;1mHaiku Load (0.3ms)[0m   [0mSELECT * FROM "haikus" WHERE ("haikus"."id" = 4) [0m
+  [4;36;1mMovie Load (0.3ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+Rendering template within layouts/haikus
+Rendering haikus/edit
+  [4;35;1mPoet Load (0.3ms)[0m   [0mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 24ms (View: 9, DB: 1) | 200 OK [http://0.0.0.0/haikus/4/edit]
+
+
+Processing HaikusController#edit (for 127.0.0.1 at 2009-08-13 01:07:38) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mHaiku Load (0.3ms)[0m   [0;1mSELECT * FROM "haikus" WHERE ("haikus"."id" = 4) [0m
+  [4;35;1mMovie Load (0.3ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+Rendering template within layouts/haikus
+Rendering haikus/edit
+  [4;36;1mPoet Load (0.2ms)[0m   [0;1mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 23ms (View: 9, DB: 1) | 200 OK [http://0.0.0.0/haikus/4/edit]
+
+
+Processing HaikusController#edit (for 127.0.0.1 at 2009-08-13 01:07:41) [GET]
+  Parameters: {"id"=>"4"}
+  [4;35;1mHaiku Load (0.4ms)[0m   [0mSELECT * FROM "haikus" WHERE ("haikus"."id" = 4) [0m
+  [4;36;1mMovie Load (0.3ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+Rendering template within layouts/haikus
+Rendering haikus/edit
+  [4;35;1mPoet Load (0.3ms)[0m   [0mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendered shared/_sidebar (0.5ms)
+Completed in 23ms (View: 10, DB: 1) | 200 OK [http://0.0.0.0/haikus/4/edit]
+
+
+Processing HaikusController#edit (for 127.0.0.1 at 2009-08-13 01:08:02) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mHaiku Load (0.3ms)[0m   [0;1mSELECT * FROM "haikus" WHERE ("haikus"."id" = 4) [0m
+  [4;35;1mMovie Load (0.3ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+Rendering template within layouts/haikus
+Rendering haikus/edit
+
+ActionView::TemplateError (undefined method `name' for :poet:Symbol) on line #7 of app/views/haikus/edit.html.erb:
+4:   <%= f.error_messages %>
+5: 
+6:   <p>
+7:     <%= f.label :poet.name %><br />
+8:     <%= f.text_field :poet %>
+9:   </p>
+10:   <p>
+
+    app/views/haikus/edit.html.erb:7
+    app/views/haikus/edit.html.erb:3
+
+Rendered rescues/_trace (46.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing HaikusController#edit (for 127.0.0.1 at 2009-08-13 01:08:21) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mHaiku Load (0.3ms)[0m   [0;1mSELECT * FROM "haikus" WHERE ("haikus"."id" = 4) [0m
+  [4;35;1mMovie Load (0.3ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+Rendering template within layouts/haikus
+Rendering haikus/edit
+
+ActionView::TemplateError (undefined method `poet' for :haiku:Symbol) on line #7 of app/views/haikus/edit.html.erb:
+4:   <%= f.error_messages %>
+5: 
+6:   <p>
+7:     <%= f.label :haiku.poet.name %><br />
+8:     <%= f.text_field :poet %>
+9:   </p>
+10:   <p>
+
+    app/views/haikus/edit.html.erb:7
+    app/views/haikus/edit.html.erb:3
+
+Rendered rescues/_trace (46.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing HaikusController#edit (for 127.0.0.1 at 2009-08-13 01:08:31) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mHaiku Load (0.3ms)[0m   [0;1mSELECT * FROM "haikus" WHERE ("haikus"."id" = 4) [0m
+  [4;35;1mMovie Load (0.3ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+Rendering template within layouts/haikus
+Rendering haikus/edit
+
+ActionView::TemplateError (undefined method `name' for :poet:Symbol) on line #7 of app/views/haikus/edit.html.erb:
+4:   <%= f.error_messages %>
+5: 
+6:   <p>
+7:     <%= f.label :poet.name %><br />
+8:     <%= f.text_field :poet %>
+9:   </p>
+10:   <p>
+
+    app/views/haikus/edit.html.erb:7
+    app/views/haikus/edit.html.erb:3
+
+Rendered rescues/_trace (47.5ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing HaikusController#edit (for 127.0.0.1 at 2009-08-13 01:08:36) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mHaiku Load (0.3ms)[0m   [0;1mSELECT * FROM "haikus" WHERE ("haikus"."id" = 4) [0m
+  [4;35;1mMovie Load (0.3ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+Rendering template within layouts/haikus
+Rendering haikus/edit
+  [4;36;1mPoet Load (0.3ms)[0m   [0;1mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 27ms (View: 13, DB: 1) | 200 OK [http://0.0.0.0/haikus/4/edit]
+
+
+Processing HaikusController#edit (for 127.0.0.1 at 2009-08-13 01:08:40) [GET]
+  Parameters: {"id"=>"4"}
+  [4;35;1mHaiku Load (0.3ms)[0m   [0mSELECT * FROM "haikus" WHERE ("haikus"."id" = 4) [0m
+  [4;36;1mMovie Load (0.3ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+Rendering template within layouts/haikus
+Rendering haikus/edit
+  [4;35;1mPoet Load (0.3ms)[0m   [0mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 29ms (View: 15, DB: 1) | 200 OK [http://0.0.0.0/haikus/4/edit]
+
+
+Processing HaikusController#edit (for 127.0.0.1 at 2009-08-13 01:09:20) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mHaiku Load (0.3ms)[0m   [0;1mSELECT * FROM "haikus" WHERE ("haikus"."id" = 4) [0m
+  [4;35;1mPoet Load (0.3ms)[0m   [0mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/edit
+ERROR: compiling _run_erb_app47views47haikus47edit46html46erb RAISED compile error
+/Users/anna/Sites/moviehaiku/app/views/haikus/edit.html.erb:7: syntax error, unexpected ':', expecting ')'
+...tput_buffer.concat(( f.label : ).to_s); @output_buffer.conca...
+                              ^
+Function body:           def _run_erb_app47views47haikus47edit46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "<h1>Edit Haiku</h1>\n"
+@output_buffer.concat "\n"
+ form_for(@haiku) do |f| ; @output_buffer.concat "\n"
+@output_buffer.concat "  "; @output_buffer.concat(( f.error_messages ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "\n"
+@output_buffer.concat "  <p>\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.label : ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.text_field :poet ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  </p>\n"
+@output_buffer.concat "  <p>\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.label :line1 ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.text_field :line1 ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  </p>\n"
+@output_buffer.concat "  <p>\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.label :line2 ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.text_field :line2 ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  </p>\n"
+@output_buffer.concat "  <p>\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.label :line3 ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.text_field :line3 ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  </p>\n"
+@output_buffer.concat "  <p>\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.label :email ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.text_field :email ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  </p>\n"
+@output_buffer.concat "  <p>\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.label :movie ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.text_field :movie ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  </p>\n"
+@output_buffer.concat "  <p>\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.submit 'Update' ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  </p>\n"
+ end ; @output_buffer.concat "\n"
+@output_buffer.concat "\n"
+@output_buffer.concat(( link_to 'Show', @haiku ).to_s); @output_buffer.concat " |\n"
+@output_buffer.concat(( link_to 'Back', haikus_path ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat(( link_to 'Home', :controller => 'home' ).to_s); @output_buffer.concat "\n"
+@output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /Users/anna/Sites/moviehaiku/app/views/haikus/edit.html.erb:41:in `compile!'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/renderable.rb:61:in `compile'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/renderable.rb:28:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/template.rb:194:in `render_template'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:260:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:343:in `_render_with_layout'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:257:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1241:in `render_for_file'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:937:in `render_without_benchmark'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:51:in `render'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:51:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1317:in `default_render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1323:in `perform_action_without_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:617:in `call_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/flash.rb:141:in `perform_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:523:in `send'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:523:in `process_without_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:606:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:391:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:386:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/routing/route_set.rb:433:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:88:in `dispatch'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:111:in `_call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:82:in `initialize'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:29:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:29:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:9:in `cache'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:28:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/head.rb:9:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/methodoverride.rb:24:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/params_parser.rb:15:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/rewindable_input.rb:25:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/session/cookie_store.rb:93:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/reloader.rb:9:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/failsafe.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `synchronize'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:106:in `call'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/rails/rack/static.rb:31:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:46:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `each'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `call'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/rails/rack/log_tailer.rb:17:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/content_length.rb:13:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/chunked.rb:15:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:61:in `process'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:159:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `each'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `run'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:34:in `run'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/commands/server.rb:111
+/Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+/Users/anna/Sites/moviehaiku/app/views/haikus/edit.html.erb:7: syntax error, unexpected ':', expecting ')'
+...tput_buffer.concat(( f.label : ).to_s); @output_buffer.conca...
+                              ^) on line #7 of app/views/haikus/edit.html.erb:
+4:   <%= f.error_messages %>
+5: 
+6:   <p>
+7:     <%= f.label : %><br />
+8:     <%= f.text_field :poet %>
+9:   </p>
+10:   <p>
+
+    app/views/haikus/edit.html.erb:41:in `compile!'
+
+Rendered rescues/_trace (44.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing HaikusController#edit (for 127.0.0.1 at 2009-08-13 01:09:22) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mHaiku Load (0.3ms)[0m   [0;1mSELECT * FROM "haikus" WHERE ("haikus"."id" = 4) [0m
+  [4;35;1mPoet Load (0.3ms)[0m   [0mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/edit
+ERROR: compiling _run_erb_app47views47haikus47edit46html46erb RAISED compile error
+/Users/anna/Sites/moviehaiku/app/views/haikus/edit.html.erb:7: syntax error, unexpected ':', expecting ')'
+...tput_buffer.concat(( f.label : ).to_s); @output_buffer.conca...
+                              ^
+Function body:           def _run_erb_app47views47haikus47edit46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "<h1>Edit Haiku</h1>\n"
+@output_buffer.concat "\n"
+ form_for(@haiku) do |f| ; @output_buffer.concat "\n"
+@output_buffer.concat "  "; @output_buffer.concat(( f.error_messages ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "\n"
+@output_buffer.concat "  <p>\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.label : ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.text_field :poet ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  </p>\n"
+@output_buffer.concat "  <p>\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.label :line1 ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.text_field :line1 ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  </p>\n"
+@output_buffer.concat "  <p>\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.label :line2 ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.text_field :line2 ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  </p>\n"
+@output_buffer.concat "  <p>\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.label :line3 ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.text_field :line3 ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  </p>\n"
+@output_buffer.concat "  <p>\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.label :email ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.text_field :email ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  </p>\n"
+@output_buffer.concat "  <p>\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.label :movie ).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.text_field :movie ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  </p>\n"
+@output_buffer.concat "  <p>\n"
+@output_buffer.concat "    "; @output_buffer.concat(( f.submit 'Update' ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "  </p>\n"
+ end ; @output_buffer.concat "\n"
+@output_buffer.concat "\n"
+@output_buffer.concat(( link_to 'Show', @haiku ).to_s); @output_buffer.concat " |\n"
+@output_buffer.concat(( link_to 'Back', haikus_path ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat(( link_to 'Home', :controller => 'home' ).to_s); @output_buffer.concat "\n"
+@output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /Users/anna/Sites/moviehaiku/app/views/haikus/edit.html.erb:41:in `compile!'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/renderable.rb:61:in `compile'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/renderable.rb:28:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/template.rb:194:in `render_template'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:260:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:343:in `_render_with_layout'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:257:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1241:in `render_for_file'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:937:in `render_without_benchmark'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:51:in `render'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:51:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1317:in `default_render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1323:in `perform_action_without_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:617:in `call_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/flash.rb:141:in `perform_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:523:in `send'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:523:in `process_without_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:606:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:391:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:386:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/routing/route_set.rb:433:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:88:in `dispatch'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:111:in `_call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:82:in `initialize'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:29:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:29:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:9:in `cache'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:28:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/head.rb:9:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/methodoverride.rb:24:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/params_parser.rb:15:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/rewindable_input.rb:25:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/session/cookie_store.rb:93:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/reloader.rb:9:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/failsafe.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `synchronize'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:106:in `call'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/rails/rack/static.rb:31:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:46:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `each'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `call'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/rails/rack/log_tailer.rb:17:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/content_length.rb:13:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/chunked.rb:15:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:61:in `process'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:159:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `each'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `run'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:34:in `run'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/commands/server.rb:111
+/Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+/Users/anna/Sites/moviehaiku/app/views/haikus/edit.html.erb:7: syntax error, unexpected ':', expecting ')'
+...tput_buffer.concat(( f.label : ).to_s); @output_buffer.conca...
+                              ^) on line #7 of app/views/haikus/edit.html.erb:
+4:   <%= f.error_messages %>
+5: 
+6:   <p>
+7:     <%= f.label : %><br />
+8:     <%= f.text_field :poet %>
+9:   </p>
+10:   <p>
+
+    app/views/haikus/edit.html.erb:41:in `compile!'
+
+Rendered rescues/_trace (43.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing HaikusController#edit (for 127.0.0.1 at 2009-08-13 01:09:30) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mHaiku Load (0.3ms)[0m   [0;1mSELECT * FROM "haikus" WHERE ("haikus"."id" = 4) [0m
+  [4;35;1mPoet Load (0.3ms)[0m   [0mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/edit
+  [4;36;1mMovie Load (0.3ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 28ms (View: 15, DB: 1) | 200 OK [http://0.0.0.0/haikus/4/edit]
+
+
+Processing HaikusController#edit (for 127.0.0.1 at 2009-08-13 01:09:47) [GET]
+  Parameters: {"id"=>"4"}
+  [4;35;1mHaiku Load (0.3ms)[0m   [0mSELECT * FROM "haikus" WHERE ("haikus"."id" = 4) [0m
+  [4;36;1mPoet Load (0.3ms)[0m   [0;1mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/edit
+
+ActionView::TemplateError (undefined method `poet' for #<ActionView::Helpers::FormBuilder:0x2650cdc>) on line #5 of app/views/haikus/edit.html.erb:
+2: 
+3: <% form_for(@haiku) do |f| %>
+4:   <%= f.error_messages %>
+5: <%= f.poet.name %>
+6:   <p>
+7:     <%= f.label :poet %><br />
+8:     <%= f.text_field :poet %>
+
+    app/views/haikus/edit.html.erb:5
+    app/views/haikus/edit.html.erb:3
+
+Rendered rescues/_trace (46.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing HaikusController#edit (for 127.0.0.1 at 2009-08-13 01:09:54) [GET]
+  Parameters: {"id"=>"4"}
+  [4;35;1mHaiku Load (0.3ms)[0m   [0mSELECT * FROM "haikus" WHERE ("haikus"."id" = 4) [0m
+  [4;36;1mPoet Load (0.2ms)[0m   [0;1mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/edit
+
+ActionView::TemplateError (undefined method `poet' for #<ActionView::Helpers::FormBuilder:0x24a471c>) on line #5 of app/views/haikus/edit.html.erb:
+2: 
+3: <% form_for(@haiku) do |f| %>
+4:   <%= f.error_messages %>
+5: <%= f.poet.id %>
+6:   <p>
+7:     <%= f.label :poet %><br />
+8:     <%= f.text_field :poet %>
+
+    app/views/haikus/edit.html.erb:5
+    app/views/haikus/edit.html.erb:3
+
+Rendered rescues/_trace (121.5ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing HaikusController#edit (for 127.0.0.1 at 2009-08-13 01:10:04) [GET]
+  Parameters: {"id"=>"4"}
+  [4;35;1mHaiku Load (0.3ms)[0m   [0mSELECT * FROM "haikus" WHERE ("haikus"."id" = 4) [0m
+  [4;36;1mPoet Load (0.3ms)[0m   [0;1mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/edit
+
+ActionView::TemplateError (undefined method `poet_id' for #<ActionView::Helpers::FormBuilder:0x25dc3a0>) on line #5 of app/views/haikus/edit.html.erb:
+2: 
+3: <% form_for(@haiku) do |f| %>
+4:   <%= f.error_messages %>
+5: <%= f.poet_id %>
+6:   <p>
+7:     <%= f.label :poet %><br />
+8:     <%= f.text_field :poet %>
+
+    app/views/haikus/edit.html.erb:5
+    app/views/haikus/edit.html.erb:3
+
+Rendered rescues/_trace (47.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing HaikusController#edit (for 127.0.0.1 at 2009-08-13 01:10:14) [GET]
+  Parameters: {"id"=>"4"}
+  [4;35;1mHaiku Load (0.3ms)[0m   [0mSELECT * FROM "haikus" WHERE ("haikus"."id" = 4) [0m
+  [4;36;1mPoet Load (0.3ms)[0m   [0;1mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/edit
+
+ActionView::TemplateError (undefined method `haiku' for #<ActionView::Helpers::FormBuilder:0x2439a70>) on line #5 of app/views/haikus/edit.html.erb:
+2: 
+3: <% form_for(@haiku) do |f| %>
+4:   <%= f.error_messages %>
+5: <%= f.haiku.poet_id %>
+6:   <p>
+7:     <%= f.label :poet %><br />
+8:     <%= f.text_field :poet %>
+
+    app/views/haikus/edit.html.erb:5
+    app/views/haikus/edit.html.erb:3
+
+Rendered rescues/_trace (127.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing HaikusController#edit (for 127.0.0.1 at 2009-08-13 01:10:19) [GET]
+  Parameters: {"id"=>"4"}
+  [4;35;1mHaiku Load (0.3ms)[0m   [0mSELECT * FROM "haikus" WHERE ("haikus"."id" = 4) [0m
+  [4;36;1mPoet Load (0.2ms)[0m   [0;1mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/edit
+
+ActionView::TemplateError (undefined method `haiku' for #<ActionView::Helpers::FormBuilder:0x257b4c4>) on line #5 of app/views/haikus/edit.html.erb:
+2: 
+3: <% form_for(@haiku) do |f| %>
+4:   <%= f.error_messages %>
+5: <%= f.haiku %>
+6:   <p>
+7:     <%= f.label :poet %><br />
+8:     <%= f.text_field :poet %>
+
+    app/views/haikus/edit.html.erb:5
+    app/views/haikus/edit.html.erb:3
+
+Rendered rescues/_trace (46.7ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing HaikusController#edit (for 127.0.0.1 at 2009-08-13 01:10:28) [GET]
+  Parameters: {"id"=>"4"}
+  [4;35;1mHaiku Load (0.3ms)[0m   [0mSELECT * FROM "haikus" WHERE ("haikus"."id" = 4) [0m
+  [4;36;1mPoet Load (0.3ms)[0m   [0;1mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/edit
+  [4;35;1mMovie Load (0.3ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 30ms (View: 16, DB: 1) | 200 OK [http://0.0.0.0/haikus/4/edit]
+
+
+Processing HaikusController#edit (for 127.0.0.1 at 2009-08-13 01:11:47) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mHaiku Load (0.3ms)[0m   [0;1mSELECT * FROM "haikus" WHERE ("haikus"."id" = 4) [0m
+  [4;35;1mPoet Load (0.2ms)[0m   [0mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/edit
+  [4;36;1mMovie Load (0.3ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 29ms (View: 15, DB: 1) | 200 OK [http://0.0.0.0/haikus/4/edit]
+
+
+Processing HaikusController#edit (for 127.0.0.1 at 2009-08-13 01:12:15) [GET]
+  Parameters: {"id"=>"4"}
+  [4;35;1mHaiku Load (0.3ms)[0m   [0mSELECT * FROM "haikus" WHERE ("haikus"."id" = 4) [0m
+  [4;36;1mPoet Load (0.3ms)[0m   [0;1mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/edit
+
+ActionView::TemplateError (undefined method `poet' for :@haiku:Symbol) on line #6 of app/views/haikus/edit.html.erb:
+3: <% form_for(@haiku) do |f| %>
+4:   <%= f.error_messages %>
+5:  <p>
+6:     <%= f.label :@haiku.poet.name %><br />
+7:     <%= f.text_field :line1 %>
+8:   </p>
+9:  
+
+    app/views/haikus/edit.html.erb:6
+    app/views/haikus/edit.html.erb:3
+
+Rendered rescues/_trace (48.0ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing HaikusController#edit (for 127.0.0.1 at 2009-08-13 01:12:20) [GET]
+  Parameters: {"id"=>"4"}
+  [4;35;1mHaiku Load (0.4ms)[0m   [0mSELECT * FROM "haikus" WHERE ("haikus"."id" = 4) [0m
+  [4;36;1mPoet Load (0.3ms)[0m   [0;1mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/edit
+  [4;35;1mMovie Load (0.3ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+Rendered shared/_sidebar (0.6ms)
+Completed in 33ms (View: 15, DB: 1) | 200 OK [http://0.0.0.0/haikus/4/edit]
+
+
+Processing HaikusController#edit (for 127.0.0.1 at 2009-08-13 01:12:44) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mHaiku Load (0.3ms)[0m   [0;1mSELECT * FROM "haikus" WHERE ("haikus"."id" = 4) [0m
+  [4;35;1mPoet Load (0.3ms)[0m   [0mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/edit
+
+ActionView::TemplateError (undefined method `Anna' for #<Haiku:0x23b9ab4>) on line #7 of app/views/haikus/edit.html.erb:
+4:   <%= f.error_messages %>
+5:  <p>
+6:     Poet Name<br />
+7:     <%= f.text_field @haiku.poet.name %>
+8:   </p>
+9:  
+10:  
+
+    app/views/haikus/edit.html.erb:7
+    app/views/haikus/edit.html.erb:3
+
+Rendered rescues/_trace (52.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing HaikusController#edit (for 127.0.0.1 at 2009-08-13 01:12:45) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mHaiku Load (0.3ms)[0m   [0;1mSELECT * FROM "haikus" WHERE ("haikus"."id" = 4) [0m
+  [4;35;1mPoet Load (0.3ms)[0m   [0mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/edit
+
+ActionView::TemplateError (undefined method `Anna' for #<Haiku:0x24e69c8>) on line #7 of app/views/haikus/edit.html.erb:
+4:   <%= f.error_messages %>
+5:  <p>
+6:     Poet Name<br />
+7:     <%= f.text_field @haiku.poet.name %>
+8:   </p>
+9:  
+10:  
+
+    app/views/haikus/edit.html.erb:7
+    app/views/haikus/edit.html.erb:3
+
+Rendered rescues/_trace (53.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing HaikusController#edit (for 127.0.0.1 at 2009-08-13 01:12:49) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mHaiku Load (0.3ms)[0m   [0;1mSELECT * FROM "haikus" WHERE ("haikus"."id" = 4) [0m
+  [4;35;1mPoet Load (0.2ms)[0m   [0mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/edit
+
+ActionView::TemplateError (undefined method `Anna' for #<Haiku:0x263d7b8>) on line #7 of app/views/haikus/edit.html.erb:
+4:   <%= f.error_messages %>
+5:  <p>
+6:     Poet Name<br />
+7:     <%= f.text_field @haiku.poet.name %>
+8:   </p>
+9:  
+10:  
+
+    app/views/haikus/edit.html.erb:7
+    app/views/haikus/edit.html.erb:3
+
+Rendered rescues/_trace (51.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing HaikusController#edit (for 127.0.0.1 at 2009-08-13 01:13:03) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mHaiku Load (0.3ms)[0m   [0;1mSELECT * FROM "haikus" WHERE ("haikus"."id" = 4) [0m
+  [4;35;1mPoet Load (0.3ms)[0m   [0mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/edit
+  [4;36;1mMovie Load (0.3ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 33ms (View: 15, DB: 1) | 200 OK [http://0.0.0.0/haikus/4/edit]
+
+
+Processing HaikusController#edit (for 127.0.0.1 at 2009-08-13 01:13:25) [GET]
+  Parameters: {"id"=>"4"}
+  [4;35;1mHaiku Load (0.3ms)[0m   [0mSELECT * FROM "haikus" WHERE ("haikus"."id" = 4) [0m
+  [4;36;1mPoet Load (0.2ms)[0m   [0;1mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/edit
+  [4;35;1mMovie Load (0.3ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 28ms (View: 15, DB: 1) | 200 OK [http://0.0.0.0/haikus/4/edit]
+
+
+Processing HaikusController#edit (for 127.0.0.1 at 2009-08-13 01:13:28) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mHaiku Load (0.3ms)[0m   [0;1mSELECT * FROM "haikus" WHERE ("haikus"."id" = 4) [0m
+  [4;35;1mPoet Load (0.3ms)[0m   [0mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/edit
+  [4;36;1mMovie Load (0.3ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 107ms (View: 17, DB: 1) | 200 OK [http://0.0.0.0/haikus/4/edit]
+
+
+Processing HaikusController#update (for 127.0.0.1 at 2009-08-13 01:14:04) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"y+RxC/9cu+U6YxHBgriKB2tY3quZ9uHguCeMYy8TD1c=", "haiku"=>{"line1"=>"Men are total dicks", "line2"=>"Says he, she's cute but anal", "line3"=>"Same ole rom com plot"}, "id"=>"4"}
+  [4;35;1mHaiku Load (0.3ms)[0m   [0mSELECT * FROM "haikus" WHERE ("haikus"."id" = 4) [0m
+  [4;36;1mHaiku Update (0.9ms)[0m   [0;1mUPDATE "haikus" SET "line3" = 'Same ole rom com plot', "updated_at" = '2009-08-13 08:14:04', "line2" = 'Says he, she''s cute but anal' WHERE "id" = 4[0m
+Redirected to http://0.0.0.0:3000/haikus/4
+Completed in 18ms (DB: 1) | 302 Found [http://0.0.0.0/haikus/4]
+
+
+Processing HaikusController#show (for 127.0.0.1 at 2009-08-13 01:14:04) [GET]
+  Parameters: {"id"=>"4"}
+  [4;35;1mHaiku Load (0.3ms)[0m   [0mSELECT * FROM "haikus" WHERE ("haikus"."id" = 4) [0m
+  [4;36;1mPoet Load (0.3ms)[0m   [0;1mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/show
+  [4;35;1mMovie Load (0.3ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 24ms (View: 9, DB: 1) | 200 OK [http://0.0.0.0/haikus/4]
+
+
+Processing HaikusController#new (for 127.0.0.1 at 2009-08-13 01:14:16) [GET]
+Rendering template within layouts/haikus
+Rendering haikus/new
+  [4;36;1mMovie Load (0.5ms)[0m   [0;1mSELECT * FROM "movies" [0m
+  [4;35;1mPoet Load (0.3ms)[0m   [0mSELECT * FROM "poets" [0m
+Rendered shared/_sidebar (0.6ms)
+Completed in 24ms (View: 17, DB: 1) | 200 OK [http://0.0.0.0/haikus/new]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-08-13 01:14:19) [GET]
+  [4;36;1mHaiku Load (0.7ms)[0m   [0;1mSELECT * FROM "haikus" ORDER BY haikus.id DESC LIMIT 1[0m
+  [4;35;1mPoet Load (0.2ms)[0m   [0mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/home
+Rendering home/index
+  [4;36;1mMovie Load (0.3ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 22ms (View: 9, DB: 1) | 200 OK [http://0.0.0.0/]
+
+
+Processing HaikusController#index (for 127.0.0.1 at 2009-08-13 01:14:22) [GET]
+  [4;35;1mHaiku Load (1.3ms)[0m   [0mSELECT * FROM "haikus" ORDER BY created_at DESC[0m
+  [4;36;1mPoet Load (0.3ms)[0m   [0;1mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/index
+  [4;35;1mMovie Load (0.3ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+  [4;36;1mMovie Load (0.3ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 2) [0m
+  [4;35;1mMovie Load (0.2ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 1) [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 27ms (View: 12, DB: 2) | 200 OK [http://0.0.0.0/haikus]
+
+
+Processing HaikusController#edit (for 127.0.0.1 at 2009-08-13 01:14:24) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mHaiku Load (0.3ms)[0m   [0;1mSELECT * FROM "haikus" WHERE ("haikus"."id" = 4) [0m
+  [4;35;1mPoet Load (0.2ms)[0m   [0mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/edit
+  [4;36;1mMovie Load (0.3ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 24ms (View: 11, DB: 1) | 200 OK [http://0.0.0.0/haikus/4/edit]
+
+
+Processing HaikusController#update (for 127.0.0.1 at 2009-08-13 01:14:26) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"y+RxC/9cu+U6YxHBgriKB2tY3quZ9uHguCeMYy8TD1c=", "haiku"=>{"line1"=>"Men are total dicks", "line2"=>"Says he, she's cute but anal", "line3"=>"Same ole rom com plot"}, "id"=>"4"}
+  [4;35;1mHaiku Load (0.3ms)[0m   [0mSELECT * FROM "haikus" WHERE ("haikus"."id" = 4) [0m
+Redirected to http://0.0.0.0:3000/haikus/4
+Completed in 11ms (DB: 0) | 302 Found [http://0.0.0.0/haikus/4]
+
+
+Processing HaikusController#show (for 127.0.0.1 at 2009-08-13 01:14:26) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mHaiku Load (0.4ms)[0m   [0;1mSELECT * FROM "haikus" WHERE ("haikus"."id" = 4) [0m
+  [4;35;1mPoet Load (0.3ms)[0m   [0mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/show
+  [4;36;1mMovie Load (0.3ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 26ms (View: 11, DB: 1) | 200 OK [http://0.0.0.0/haikus/4]
+
+
+Processing PoetsController#index (for 127.0.0.1 at 2009-08-13 01:14:28) [GET]
+  [4;35;1mPoet Load (0.6ms)[0m   [0mSELECT * FROM "poets" [0m
+Rendering template within layouts/poets
+Rendering poets/index
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "haikus" WHERE ("haikus".poet_id = 1) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "haikus" WHERE ("haikus".poet_id = 2) [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 32ms (View: 26, DB: 1) | 200 OK [http://0.0.0.0/poets]
+
+
+Processing PoetsController#show (for 127.0.0.1 at 2009-08-13 01:14:30) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mHaiku Load (1.2ms)[0m   [0;1mSELECT * FROM "haikus" WHERE ("haikus"."poet_id" = '1') ORDER BY created_at DESC [0m
+  [4;35;1mPoet Load (0.2ms)[0m   [0mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/poets
+Rendering poets/show
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+  [4;35;1mMovie Load (0.3ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+  [4;36;1mMovie Load (0.3ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 2) [0m
+  [4;35;1mMovie Load (0.2ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 1) [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 27ms (View: 13, DB: 2) | 200 OK [http://0.0.0.0/poets/1]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-08-13 01:14:34) [GET]
+  [4;36;1mHaiku Load (0.7ms)[0m   [0;1mSELECT * FROM "haikus" ORDER BY haikus.id DESC LIMIT 1[0m
+  [4;35;1mPoet Load (0.3ms)[0m   [0mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/home
+Rendering home/index
+  [4;36;1mMovie Load (0.3ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 23ms (View: 9, DB: 1) | 200 OK [http://0.0.0.0/]
+
+
+Processing PoetsController#index (for 127.0.0.1 at 2009-08-13 01:14:36) [GET]
+  [4;35;1mPoet Load (0.6ms)[0m   [0mSELECT * FROM "poets" [0m
+Rendering template within layouts/poets
+Rendering poets/index
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "haikus" WHERE ("haikus".poet_id = 1) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "haikus" WHERE ("haikus".poet_id = 2) [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 16ms (View: 10, DB: 1) | 200 OK [http://0.0.0.0/poets]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-08-13 01:14:38) [GET]
+  [4;36;1mHaiku Load (0.6ms)[0m   [0;1mSELECT * FROM "haikus" ORDER BY haikus.id DESC LIMIT 1[0m
+  [4;35;1mPoet Load (0.3ms)[0m   [0mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/home
+Rendering home/index
+  [4;36;1mMovie Load (0.3ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 22ms (View: 9, DB: 1) | 200 OK [http://0.0.0.0/]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-08-13 01:17:53) [GET]
+  [4;35;1mHaiku Load (0.7ms)[0m   [0mSELECT * FROM "haikus" ORDER BY haikus.id DESC LIMIT 1[0m
+  [4;36;1mPoet Load (0.3ms)[0m   [0;1mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/home
+Rendering home/index
+ERROR: compiling _run_erb_app47views47home47index46html46erb RAISED compile error
+/Users/anna/Sites/moviehaiku/app/views/home/index.html.erb:22: syntax error, unexpected tSTRING_BEG, expecting kEND
+...rl, :border=>0), :controller="movies", :action=>"show", :id=...
+                              ^
+/Users/anna/Sites/moviehaiku/app/views/home/index.html.erb:22: syntax error, unexpected ',', expecting kEND
+...der=>0), :controller="movies", :action=>"show", :id=>@a.id ;...
+                              ^
+/Users/anna/Sites/moviehaiku/app/views/home/index.html.erb:22: syntax error, unexpected ',', expecting kEND
+...ler="movies", :action=>"show", :id=>@a.id ; @output_buffer.c...
+                              ^
+Function body:           def _run_erb_app47views47home47index46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "\n"
+@output_buffer.concat "\n"
+@output_buffer.concat "          <h1>"; @output_buffer.concat(( link_to "Haikus", :controller=> "haikus" ).to_s); @output_buffer.concat "</h1>\n"
+@output_buffer.concat "\n"
+@output_buffer.concat "<div id=\"movie image\" style=\"text-align:right;float:right;border:1px solid gray;padding:5px;margin:5px;\">\n"
+@output_buffer.concat "  \n"
+@output_buffer.concat " "; @output_buffer.concat(( link_to image_tag(@haiku.movie.img_url, :border=>0), :controller=>"haikus", :action=>"show", :id=>@haiku.id  ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "</div>\n"
+@output_buffer.concat "<blockquote>\n"
+@output_buffer.concat((h @haiku.line1).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat((h @haiku.line2).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat((h @haiku.line3).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "-- by "; @output_buffer.concat((h @haiku.poet.name ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "</blockquote>\n"
+@output_buffer.concat "         \n"
+@output_buffer.concat "<h1>"; @output_buffer.concat(( link_to "Movies", :controller=> "movies" ).to_s); @output_buffer.concat "</h1>\n"
+@output_buffer.concat "         \n"
+@output_buffer.concat "\n"
+@output_buffer.concat "Latest movie: ";  @a = Movie.last ; @output_buffer.concat " \n"
+@output_buffer.concat "<div id=\"movie image\" style=\"height:150px;text-align:right;float:right;border:1px solid gray;padding:5px;margin:5px;\">\n"
+@output_buffer.concat "  \n"
+@output_buffer.concat "    ";  link_to image_tag(@a.img_url, :border=>0), :controller="movies", :action=>"show", :id=>@a.id ; @output_buffer.concat "\n"
+@output_buffer.concat "</div>\n"
+@output_buffer.concat "          \t</ul>\n"
+@output_buffer.concat "          <h1>"; @output_buffer.concat(( link_to "Poets", :controller=> "poets" ).to_s); @output_buffer.concat "</h1>\n"
+@output_buffer.concat "          \t<ul>\n"
+@output_buffer.concat "          \t\n"
+@output_buffer.concat "          \t</ul>\n"
+@output_buffer.concat "          \t\t\n"
+@output_buffer.concat "        </div>\n"
+@output_buffer.concat "      </div"; @output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /Users/anna/Sites/moviehaiku/app/views/home/index.html.erb:34:in `compile!'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/renderable.rb:61:in `compile'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/renderable.rb:28:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/template.rb:194:in `render_template'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:260:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:343:in `_render_with_layout'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:257:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1241:in `render_for_file'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:943:in `render_without_benchmark'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:51:in `render'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:51:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:135:in `send'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:135:in `custom'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:179:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:179:in `respond'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:173:in `each'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:173:in `respond'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:107:in `respond_to'
+/Users/anna/Sites/moviehaiku/app/controllers/home_controller.rb:4:in `index'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1322:in `send'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1322:in `perform_action_without_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:617:in `call_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/flash.rb:141:in `perform_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:523:in `send'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:523:in `process_without_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:606:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:391:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:386:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/routing/route_set.rb:433:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:88:in `dispatch'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:111:in `_call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:82:in `initialize'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:29:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:29:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:9:in `cache'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:28:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/head.rb:9:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/methodoverride.rb:24:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/params_parser.rb:15:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/rewindable_input.rb:25:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/session/cookie_store.rb:93:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/reloader.rb:9:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/failsafe.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `synchronize'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:106:in `call'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/rails/rack/static.rb:31:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:46:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `each'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `call'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/rails/rack/log_tailer.rb:17:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/content_length.rb:13:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/chunked.rb:15:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:61:in `process'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:159:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `each'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `run'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:34:in `run'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/commands/server.rb:111
+/Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+/Users/anna/Sites/moviehaiku/app/views/home/index.html.erb:22: syntax error, unexpected tSTRING_BEG, expecting kEND
+...rl, :border=>0), :controller="movies", :action=>"show", :id=...
+                              ^
+/Users/anna/Sites/moviehaiku/app/views/home/index.html.erb:22: syntax error, unexpected ',', expecting kEND
+...der=>0), :controller="movies", :action=>"show", :id=>@a.id ;...
+                              ^
+/Users/anna/Sites/moviehaiku/app/views/home/index.html.erb:22: syntax error, unexpected ',', expecting kEND
+...ler="movies", :action=>"show", :id=>@a.id ; @output_buffer.c...
+                              ^) on line #22 of app/views/home/index.html.erb:
+19: Latest movie: <% @a = Movie.last %> 
+20: <div id="movie image" style="height:150px;text-align:right;float:right;border:1px solid gray;padding:5px;margin:5px;">
+21:   
+22:     <% link_to image_tag(@a.img_url, :border=>0), :controller="movies", :action=>"show", :id=>@a.id %>
+23: </div>
+24:           	</ul>
+25:           <h1><%= link_to "Poets", :controller=> "poets" %></h1>
+
+    app/views/home/index.html.erb:34:in `compile!'
+    app/controllers/home_controller.rb:4:in `index'
+
+Rendered rescues/_trace (47.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-08-13 01:18:03) [GET]
+  [4;35;1mHaiku Load (0.7ms)[0m   [0mSELECT * FROM "haikus" ORDER BY haikus.id DESC LIMIT 1[0m
+  [4;36;1mPoet Load (0.2ms)[0m   [0;1mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/home
+Rendering home/index
+  [4;35;1mMovie Load (0.3ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+  [4;36;1mMovie Load (0.3ms)[0m   [0;1mSELECT * FROM "movies" ORDER BY movies.id DESC LIMIT 1[0m
+Rendered shared/_sidebar (0.5ms)
+Completed in 30ms (View: 15, DB: 2) | 200 OK [http://0.0.0.0/]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-08-13 01:18:20) [GET]
+  [4;35;1mHaiku Load (0.7ms)[0m   [0mSELECT * FROM "haikus" ORDER BY haikus.id DESC LIMIT 1[0m
+  [4;36;1mPoet Load (0.2ms)[0m   [0;1mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/home
+Rendering home/index
+  [4;35;1mMovie Load (0.3ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+  [4;36;1mMovie Load (0.3ms)[0m   [0;1mSELECT * FROM "movies" ORDER BY movies.id DESC LIMIT 1[0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 23ms (View: 9, DB: 1) | 200 OK [http://0.0.0.0/]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-08-13 01:19:12) [GET]
+  [4;35;1mHaiku Load (0.7ms)[0m   [0mSELECT * FROM "haikus" ORDER BY haikus.id DESC LIMIT 1[0m
+  [4;36;1mPoet Load (0.3ms)[0m   [0;1mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/home
+Rendering home/index
+  [4;35;1mMovie Load (0.3ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "movies" [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 28ms (View: 13, DB: 1) | 200 OK [http://0.0.0.0/]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-08-13 01:19:23) [GET]
+  [4;35;1mHaiku Load (0.6ms)[0m   [0mSELECT * FROM "haikus" ORDER BY haikus.id DESC LIMIT 1[0m
+  [4;36;1mPoet Load (0.3ms)[0m   [0;1mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/home
+Rendering home/index
+  [4;35;1mMovie Load (0.3ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "movies" [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 27ms (View: 14, DB: 1) | 200 OK [http://0.0.0.0/]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-08-13 01:19:39) [GET]
+  [4;35;1mHaiku Load (0.7ms)[0m   [0mSELECT * FROM "haikus" ORDER BY haikus.id DESC LIMIT 1[0m
+  [4;36;1mPoet Load (0.3ms)[0m   [0;1mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/home
+Rendering home/index
+  [4;35;1mMovie Load (0.3ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "movies" [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "poets" [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 28ms (View: 14, DB: 2) | 200 OK [http://0.0.0.0/]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-08-13 01:20:01) [GET]
+  [4;36;1mHaiku Load (0.7ms)[0m   [0;1mSELECT * FROM "haikus" ORDER BY haikus.id DESC LIMIT 1[0m
+  [4;35;1mPoet Load (0.3ms)[0m   [0mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/home
+Rendering home/index
+  [4;36;1mMovie Load (0.4ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "movies" [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "poets" [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 32ms (View: 14, DB: 2) | 200 OK [http://0.0.0.0/]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-08-13 01:20:33) [GET]
+  [4;35;1mHaiku Load (0.6ms)[0m   [0mSELECT * FROM "haikus" ORDER BY haikus.id DESC LIMIT 1[0m
+  [4;36;1mPoet Load (0.3ms)[0m   [0;1mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/home
+Rendering home/index
+  [4;35;1mMovie Load (0.4ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "movies" [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "poets" [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 29ms (View: 14, DB: 2) | 200 OK [http://0.0.0.0/]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-08-13 01:20:40) [GET]
+  [4;36;1mHaiku Load (0.6ms)[0m   [0;1mSELECT * FROM "haikus" ORDER BY haikus.id DESC LIMIT 1[0m
+  [4;35;1mPoet Load (0.3ms)[0m   [0mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/home
+Rendering home/index
+  [4;36;1mMovie Load (0.3ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "movies" [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "poets" [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 31ms (View: 14, DB: 2) | 200 OK [http://0.0.0.0/]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-08-13 01:20:41) [GET]
+  [4;35;1mHaiku Load (0.7ms)[0m   [0mSELECT * FROM "haikus" ORDER BY haikus.id DESC LIMIT 1[0m
+  [4;36;1mPoet Load (0.3ms)[0m   [0;1mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/home
+Rendering home/index
+  [4;35;1mMovie Load (0.3ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "movies" [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "poets" [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 27ms (View: 10, DB: 2) | 200 OK [http://0.0.0.0/]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-08-13 01:20:54) [GET]
+  [4;36;1mHaiku Load (0.7ms)[0m   [0;1mSELECT * FROM "haikus" ORDER BY haikus.id DESC LIMIT 1[0m
+  [4;35;1mPoet Load (0.3ms)[0m   [0mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/home
+Rendering home/index
+  [4;36;1mMovie Load (0.3ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "movies" [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "poets" [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 26ms (View: 10, DB: 2) | 200 OK [http://0.0.0.0/]
+
+
+Processing PoetsController#index (for 127.0.0.1 at 2009-08-13 01:20:56) [GET]
+  [4;35;1mPoet Load (0.6ms)[0m   [0mSELECT * FROM "poets" [0m
+Rendering template within layouts/poets
+Rendering poets/index
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "haikus" WHERE ("haikus".poet_id = 1) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "haikus" WHERE ("haikus".poet_id = 2) [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 17ms (View: 10, DB: 1) | 200 OK [http://0.0.0.0/poets]
+
+
+Processing PoetsController#show (for 127.0.0.1 at 2009-08-13 01:20:57) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mHaiku Load (0.9ms)[0m   [0;1mSELECT * FROM "haikus" WHERE ("haikus"."poet_id" = '2') ORDER BY created_at DESC [0m
+Rendering template within layouts/poets
+Rendering poets/show
+  [4;35;1mPoet Load (0.2ms)[0m   [0mSELECT * FROM "poets" WHERE ("poets"."id" = 2) [0m
+Rendered shared/_sidebar (0.5ms)
+Completed in 14ms (View: 8, DB: 1) | 200 OK [http://0.0.0.0/poets/2]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-08-13 01:20:59) [GET]
+  [4;36;1mHaiku Load (0.7ms)[0m   [0;1mSELECT * FROM "haikus" ORDER BY haikus.id DESC LIMIT 1[0m
+  [4;35;1mPoet Load (0.2ms)[0m   [0mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/home
+Rendering home/index
+  [4;36;1mMovie Load (0.3ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "movies" [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "poets" [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 23ms (View: 10, DB: 1) | 200 OK [http://0.0.0.0/]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-08-13 01:21:21) [GET]
+  [4;35;1mHaiku Load (0.6ms)[0m   [0mSELECT * FROM "haikus" ORDER BY haikus.id DESC LIMIT 1[0m
+  [4;36;1mPoet Load (0.3ms)[0m   [0;1mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/home
+Rendering home/index
+  [4;35;1mMovie Load (0.3ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "movies" [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "poets" [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 27ms (View: 14, DB: 2) | 200 OK [http://0.0.0.0/]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-08-13 01:21:33) [GET]
+  [4;36;1mHaiku Load (0.6ms)[0m   [0;1mSELECT * FROM "haikus" ORDER BY haikus.id DESC LIMIT 1[0m
+  [4;35;1mPoet Load (0.3ms)[0m   [0mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/home
+Rendering home/index
+  [4;36;1mMovie Load (0.3ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "movies" [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "poets" [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 28ms (View: 14, DB: 2) | 200 OK [http://0.0.0.0/]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-08-13 01:21:41) [GET]
+  [4;35;1mHaiku Load (0.6ms)[0m   [0mSELECT * FROM "haikus" ORDER BY haikus.id DESC LIMIT 1[0m
+  [4;36;1mPoet Load (0.3ms)[0m   [0;1mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/home
+Rendering home/index
+ERROR: compiling _run_erb_app47views47home47index46html46erb RAISED compile error
+/Users/anna/Sites/moviehaiku/app/views/home/index.html.erb:22: syntax error, unexpected tSTRING_BEG, expecting tASSOC
+...controller=>"poets", :action="new" ).to_s); @output_buffer.c...
+                              ^
+Function body:           def _run_erb_app47views47home47index46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "\n"
+@output_buffer.concat "\n"
+@output_buffer.concat "          <h1>"; @output_buffer.concat(( link_to "Haikus", :controller=> "haikus" ).to_s); @output_buffer.concat "</h1>\n"
+@output_buffer.concat "          Latest haiku:\n"
+@output_buffer.concat "\n"
+@output_buffer.concat "<div id=\"movie image\" style=\"text-align:right;float:right;border:1px solid gray;padding:5px;margin:5px;\">\n"
+@output_buffer.concat "  \n"
+@output_buffer.concat " "; @output_buffer.concat(( link_to image_tag(@haiku.movie.img_url, :border=>0), :controller=>"haikus", :action=>"show", :id=>@haiku.id  ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "</div>\n"
+@output_buffer.concat "<blockquote>\n"
+@output_buffer.concat((h @haiku.line1).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat((h @haiku.line2).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat((h @haiku.line3).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "-- by "; @output_buffer.concat((h @haiku.poet.name ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "</blockquote>\n"
+@output_buffer.concat "         \n"
+@output_buffer.concat "<h1>"; @output_buffer.concat(( link_to "Movies", :controller=> "movies" ).to_s); @output_buffer.concat "</h1>\n"
+@output_buffer.concat "         \n"
+@output_buffer.concat "\t"; @output_buffer.concat(( Movie.count).to_s); @output_buffer.concat " movies so far! ";  link_to "Add one", :controller=>"movies", :action=>"new" ; @output_buffer.concat "\n"
+@output_buffer.concat "<h1>"; @output_buffer.concat(( link_to "Poets", :controller=> "poets" ).to_s); @output_buffer.concat "</h1>\n"
+@output_buffer.concat "          "; @output_buffer.concat(( Poet.count ).to_s); @output_buffer.concat " poets are here! <br />\n"
+@output_buffer.concat "          "; @output_buffer.concat(( link_to "Come on in", :controller=>"poets", :action="new" ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "        </div>\n"
+@output_buffer.concat "      </div"; @output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /Users/anna/Sites/moviehaiku/app/views/home/index.html.erb:27:in `compile!'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/renderable.rb:61:in `compile'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/renderable.rb:28:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/template.rb:194:in `render_template'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:260:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:343:in `_render_with_layout'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:257:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1241:in `render_for_file'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:943:in `render_without_benchmark'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:51:in `render'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:51:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:135:in `send'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:135:in `custom'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:179:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:179:in `respond'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:173:in `each'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:173:in `respond'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:107:in `respond_to'
+/Users/anna/Sites/moviehaiku/app/controllers/home_controller.rb:4:in `index'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1322:in `send'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1322:in `perform_action_without_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:617:in `call_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/flash.rb:141:in `perform_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:523:in `send'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:523:in `process_without_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:606:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:391:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:386:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/routing/route_set.rb:433:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:88:in `dispatch'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:111:in `_call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:82:in `initialize'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:29:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:29:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:9:in `cache'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:28:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/head.rb:9:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/methodoverride.rb:24:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/params_parser.rb:15:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/rewindable_input.rb:25:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/session/cookie_store.rb:93:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/reloader.rb:9:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/failsafe.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `synchronize'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:106:in `call'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/rails/rack/static.rb:31:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:46:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `each'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `call'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/rails/rack/log_tailer.rb:17:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/content_length.rb:13:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/chunked.rb:15:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:61:in `process'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:159:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `each'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `run'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:34:in `run'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/commands/server.rb:111
+/Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+/Users/anna/Sites/moviehaiku/app/views/home/index.html.erb:22: syntax error, unexpected tSTRING_BEG, expecting tASSOC
+...controller=>"poets", :action="new" ).to_s); @output_buffer.c...
+                              ^) on line #22 of app/views/home/index.html.erb:
+19: 	<%= Movie.count%> movies so far! <% link_to "Add one", :controller=>"movies", :action=>"new" %>
+20: <h1><%= link_to "Poets", :controller=> "poets" %></h1>
+21:           <%= Poet.count %> poets are here! <br />
+22:           <%= link_to "Come on in", :controller=>"poets", :action="new" %>
+23:         </div>
+24:       </div
+
+    app/views/home/index.html.erb:27:in `compile!'
+    app/controllers/home_controller.rb:4:in `index'
+
+Rendered rescues/_trace (48.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-08-13 01:21:47) [GET]
+  [4;35;1mHaiku Load (0.6ms)[0m   [0mSELECT * FROM "haikus" ORDER BY haikus.id DESC LIMIT 1[0m
+  [4;36;1mPoet Load (0.2ms)[0m   [0;1mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/home
+Rendering home/index
+ERROR: compiling _run_erb_app47views47home47index46html46erb RAISED compile error
+/Users/anna/Sites/moviehaiku/app/views/home/index.html.erb:22: syntax error, unexpected tSTRING_BEG, expecting tASSOC
+...controller=>"poets", :action="new" ).to_s); @output_buffer.c...
+                              ^
+Function body:           def _run_erb_app47views47home47index46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "\n"
+@output_buffer.concat "\n"
+@output_buffer.concat "          <h1>"; @output_buffer.concat(( link_to "Haikus", :controller=> "haikus" ).to_s); @output_buffer.concat "</h1>\n"
+@output_buffer.concat "          Latest haiku:\n"
+@output_buffer.concat "\n"
+@output_buffer.concat "<div id=\"movie image\" style=\"text-align:right;float:right;border:1px solid gray;padding:5px;margin:5px;\">\n"
+@output_buffer.concat "  \n"
+@output_buffer.concat " "; @output_buffer.concat(( link_to image_tag(@haiku.movie.img_url, :border=>0), :controller=>"haikus", :action=>"show", :id=>@haiku.id  ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "</div>\n"
+@output_buffer.concat "<blockquote>\n"
+@output_buffer.concat((h @haiku.line1).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat((h @haiku.line2).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat((h @haiku.line3).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "-- by "; @output_buffer.concat((h @haiku.poet.name ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "</blockquote>\n"
+@output_buffer.concat "         \n"
+@output_buffer.concat "<h1>"; @output_buffer.concat(( link_to "Movies", :controller=> "movies" ).to_s); @output_buffer.concat "</h1>\n"
+@output_buffer.concat "         \n"
+@output_buffer.concat "\t"; @output_buffer.concat(( Movie.count).to_s); @output_buffer.concat " movies so far! ";  link_to "Add one", :controller=>"movies", :action=>"new" ; @output_buffer.concat "\n"
+@output_buffer.concat "<h1>"; @output_buffer.concat(( link_to "Poets", :controller=> "poets" ).to_s); @output_buffer.concat "</h1>\n"
+@output_buffer.concat "          "; @output_buffer.concat(( Poet.count ).to_s); @output_buffer.concat " poets are here! <br />\n"
+@output_buffer.concat "          "; @output_buffer.concat(( link_to "Come on in", :controller=>"poets", :action="new" ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "        "; @output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /Users/anna/Sites/moviehaiku/app/views/home/index.html.erb:26:in `compile!'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/renderable.rb:61:in `compile'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/renderable.rb:28:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/template.rb:194:in `render_template'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:260:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:343:in `_render_with_layout'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:257:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1241:in `render_for_file'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:943:in `render_without_benchmark'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:51:in `render'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:51:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:135:in `send'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:135:in `custom'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:179:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:179:in `respond'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:173:in `each'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:173:in `respond'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:107:in `respond_to'
+/Users/anna/Sites/moviehaiku/app/controllers/home_controller.rb:4:in `index'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1322:in `send'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1322:in `perform_action_without_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:617:in `call_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/flash.rb:141:in `perform_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:523:in `send'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:523:in `process_without_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:606:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:391:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:386:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/routing/route_set.rb:433:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:88:in `dispatch'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:111:in `_call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:82:in `initialize'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:29:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:29:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:9:in `cache'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:28:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/head.rb:9:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/methodoverride.rb:24:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/params_parser.rb:15:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/rewindable_input.rb:25:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/session/cookie_store.rb:93:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/reloader.rb:9:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/failsafe.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `synchronize'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:106:in `call'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/rails/rack/static.rb:31:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:46:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `each'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `call'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/rails/rack/log_tailer.rb:17:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/content_length.rb:13:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/chunked.rb:15:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:61:in `process'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:159:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `each'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `run'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:34:in `run'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/commands/server.rb:111
+/Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+/Users/anna/Sites/moviehaiku/app/views/home/index.html.erb:22: syntax error, unexpected tSTRING_BEG, expecting tASSOC
+...controller=>"poets", :action="new" ).to_s); @output_buffer.c...
+                              ^) on line #22 of app/views/home/index.html.erb:
+19: 	<%= Movie.count%> movies so far! <% link_to "Add one", :controller=>"movies", :action=>"new" %>
+20: <h1><%= link_to "Poets", :controller=> "poets" %></h1>
+21:           <%= Poet.count %> poets are here! <br />
+22:           <%= link_to "Come on in", :controller=>"poets", :action="new" %>
+23:         
+
+    app/views/home/index.html.erb:26:in `compile!'
+    app/controllers/home_controller.rb:4:in `index'
+
+Rendered rescues/_trace (48.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-08-13 01:21:57) [GET]
+  [4;35;1mHaiku Load (0.6ms)[0m   [0mSELECT * FROM "haikus" ORDER BY haikus.id DESC LIMIT 1[0m
+  [4;36;1mPoet Load (0.3ms)[0m   [0;1mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/home
+Rendering home/index
+ERROR: compiling _run_erb_app47views47home47index46html46erb RAISED compile error
+/Users/anna/Sites/moviehaiku/app/views/home/index.html.erb:23: syntax error, unexpected tSTRING_BEG, expecting tASSOC
+...controller=>"poets", :action="new" ).to_s); @output_buffer.c...
+                              ^
+Function body:           def _run_erb_app47views47home47index46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "\n"
+@output_buffer.concat "\n"
+@output_buffer.concat "          <h1>"; @output_buffer.concat(( link_to "Haikus", :controller=> "haikus" ).to_s); @output_buffer.concat "</h1>\n"
+@output_buffer.concat "          Latest haiku:\n"
+@output_buffer.concat "\n"
+@output_buffer.concat "<div id=\"movie image\" style=\"text-align:right;float:right;border:1px solid gray;padding:5px;margin:5px;\">\n"
+@output_buffer.concat "  \n"
+@output_buffer.concat " "; @output_buffer.concat(( link_to image_tag(@haiku.movie.img_url, :border=>0), :controller=>"haikus", :action=>"show", :id=>@haiku.id  ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "</div>\n"
+@output_buffer.concat "\n"
+@output_buffer.concat "<blockquote>\n"
+@output_buffer.concat((h @haiku.line1).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat((h @haiku.line2).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat((h @haiku.line3).to_s); @output_buffer.concat "<br />\n"
+@output_buffer.concat "-- by "; @output_buffer.concat((h @haiku.poet.name ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "</blockquote>\n"
+@output_buffer.concat "         \n"
+@output_buffer.concat "<h1>"; @output_buffer.concat(( link_to "Movies", :controller=> "movies" ).to_s); @output_buffer.concat "</h1>\n"
+@output_buffer.concat "         \n"
+@output_buffer.concat "\t"; @output_buffer.concat(( Movie.count).to_s); @output_buffer.concat " movies so far! ";  link_to "Add one", :controller=>"movies", :action=>"new" ; @output_buffer.concat "\n"
+@output_buffer.concat "<h1>"; @output_buffer.concat(( link_to "Poets", :controller=> "poets" ).to_s); @output_buffer.concat "</h1>\n"
+@output_buffer.concat "          "; @output_buffer.concat(( Poet.count ).to_s); @output_buffer.concat " poets are here! <br />\n"
+@output_buffer.concat "          "; @output_buffer.concat(( link_to "Come on in", :controller=>"poets", :action="new" ).to_s); @output_buffer.concat "\n"
+@output_buffer.concat "        "; @output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /Users/anna/Sites/moviehaiku/app/views/home/index.html.erb:27:in `compile!'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/renderable.rb:61:in `compile'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/renderable.rb:28:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/template.rb:194:in `render_template'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:260:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:343:in `_render_with_layout'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:257:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1241:in `render_for_file'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:943:in `render_without_benchmark'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:51:in `render'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:51:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:135:in `send'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:135:in `custom'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:179:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:179:in `respond'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:173:in `each'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:173:in `respond'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/mime_responds.rb:107:in `respond_to'
+/Users/anna/Sites/moviehaiku/app/controllers/home_controller.rb:4:in `index'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1322:in `send'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1322:in `perform_action_without_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:617:in `call_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:10:in `realtime'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/flash.rb:141:in `perform_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:523:in `send'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:523:in `process_without_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:606:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:391:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:386:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/routing/route_set.rb:433:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:88:in `dispatch'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:111:in `_call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:82:in `initialize'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:29:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:29:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:9:in `cache'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:28:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/head.rb:9:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/methodoverride.rb:24:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/params_parser.rb:15:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/rewindable_input.rb:25:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/session/cookie_store.rb:93:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/reloader.rb:9:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/failsafe.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `synchronize'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:106:in `call'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/rails/rack/static.rb:31:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:46:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `each'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `call'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/rails/rack/log_tailer.rb:17:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/content_length.rb:13:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/chunked.rb:15:in `call'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:61:in `process'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:159:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `each'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `run'
+/Library/Ruby/Gems/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:34:in `run'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/commands/server.rb:111
+/Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+/Users/anna/Sites/moviehaiku/app/views/home/index.html.erb:23: syntax error, unexpected tSTRING_BEG, expecting tASSOC
+...controller=>"poets", :action="new" ).to_s); @output_buffer.c...
+                              ^) on line #23 of app/views/home/index.html.erb:
+20: 	<%= Movie.count%> movies so far! <% link_to "Add one", :controller=>"movies", :action=>"new" %>
+21: <h1><%= link_to "Poets", :controller=> "poets" %></h1>
+22:           <%= Poet.count %> poets are here! <br />
+23:           <%= link_to "Come on in", :controller=>"poets", :action="new" %>
+24:         
+
+    app/views/home/index.html.erb:27:in `compile!'
+    app/controllers/home_controller.rb:4:in `index'
+
+Rendered rescues/_trace (47.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-08-13 01:22:05) [GET]
+  [4;35;1mHaiku Load (0.6ms)[0m   [0mSELECT * FROM "haikus" ORDER BY haikus.id DESC LIMIT 1[0m
+  [4;36;1mPoet Load (0.3ms)[0m   [0;1mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/home
+Rendering home/index
+  [4;35;1mMovie Load (0.4ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "movies" [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "poets" [0m
+Rendered shared/_sidebar (1.9ms)
+Completed in 31ms (View: 18, DB: 2) | 200 OK [http://0.0.0.0/]
+
+
+Processing PoetsController#new (for 127.0.0.1 at 2009-08-13 01:22:07) [GET]
+Rendering template within layouts/poets
+Rendering poets/new
+Rendered shared/_sidebar (0.5ms)
+Completed in 22ms (View: 16, DB: 0) | 200 OK [http://0.0.0.0/poets/new]
+
+
+Processing PoetsController#index (for 127.0.0.1 at 2009-08-13 01:22:09) [GET]
+  [4;36;1mPoet Load (0.7ms)[0m   [0;1mSELECT * FROM "poets" [0m
+Rendering template within layouts/poets
+Rendering poets/index
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "haikus" WHERE ("haikus".poet_id = 1) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "haikus" WHERE ("haikus".poet_id = 2) [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 17ms (View: 10, DB: 1) | 200 OK [http://0.0.0.0/poets]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-08-13 01:22:11) [GET]
+  [4;35;1mHaiku Load (0.6ms)[0m   [0mSELECT * FROM "haikus" ORDER BY haikus.id DESC LIMIT 1[0m
+  [4;36;1mPoet Load (0.2ms)[0m   [0;1mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/home
+Rendering home/index
+  [4;35;1mMovie Load (0.3ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "movies" [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "poets" [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 96ms (View: 83, DB: 2) | 200 OK [http://0.0.0.0/]
+
+
+Processing HaikusController#show (for 127.0.0.1 at 2009-08-13 01:22:16) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mHaiku Load (0.3ms)[0m   [0;1mSELECT * FROM "haikus" WHERE ("haikus"."id" = 4) [0m
+  [4;35;1mPoet Load (0.3ms)[0m   [0mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/show
+  [4;36;1mMovie Load (0.3ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 23ms (View: 8, DB: 1) | 200 OK [http://0.0.0.0/haikus/4]
+
+
+Processing HaikusController#new (for 127.0.0.1 at 2009-08-13 01:22:21) [GET]
+Rendering template within layouts/haikus
+Rendering haikus/new
+  [4;35;1mMovie Load (0.6ms)[0m   [0mSELECT * FROM "movies" [0m
+  [4;36;1mPoet Load (0.3ms)[0m   [0;1mSELECT * FROM "poets" [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 24ms (View: 17, DB: 1) | 200 OK [http://0.0.0.0/haikus/new]
+
+
+Processing HaikusController#new (for 127.0.0.1 at 2009-08-13 01:22:24) [GET]
+Rendering template within layouts/haikus
+Rendering haikus/new
+  [4;35;1mMovie Load (0.6ms)[0m   [0mSELECT * FROM "movies" [0m
+  [4;36;1mPoet Load (0.4ms)[0m   [0;1mSELECT * FROM "poets" [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 26ms (View: 18, DB: 1) | 200 OK [http://0.0.0.0/haikus/new]
+
+
+Processing MoviesController#new (for 127.0.0.1 at 2009-08-13 01:22:29) [GET]
+Rendering template within layouts/movies
+Rendering movies/new
+Rendered shared/_sidebar (0.4ms)
+Completed in 11ms (View: 5, DB: 0) | 200 OK [http://0.0.0.0/movies/new]
+
+
+Processing MoviesController#index (for 127.0.0.1 at 2009-08-13 01:22:33) [GET]
+  [4;35;1mMovie Load (1.3ms)[0m   [0mSELECT * FROM "movies" ORDER BY year DESC [0m
+Rendering template within layouts/movies
+Rendering movies/index
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSELECT count(*) AS count_all FROM "haikus" WHERE ("haikus".movie_id = 3) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "haikus" WHERE ("haikus".movie_id = 8) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "haikus" WHERE ("haikus".movie_id = 8) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "haikus" WHERE ("haikus".movie_id = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "haikus" WHERE ("haikus".movie_id = 1) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "haikus" WHERE ("haikus".movie_id = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "haikus" WHERE ("haikus".movie_id = 2) [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 22ms (View: 14, DB: 2) | 200 OK [http://0.0.0.0/movies]
+
+
+Processing MoviesController#show (for 127.0.0.1 at 2009-08-13 01:22:36) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mHaiku Load (0.6ms)[0m   [0mSELECT * FROM "haikus" WHERE ("haikus"."movie_id" = '2') [0m
+  [4;36;1mPoet Load (0.3ms)[0m   [0;1mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/movies
+Rendering movies/show
+  [4;35;1mMovie Load (0.3ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 2) [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 24ms (View: 9, DB: 1) | 200 OK [http://0.0.0.0/movies/2]
+
+
+Processing HaikusController#index (for 127.0.0.1 at 2009-08-13 01:22:42) [GET]
+  [4;36;1mHaiku Load (1.3ms)[0m   [0;1mSELECT * FROM "haikus" ORDER BY created_at DESC[0m
+  [4;35;1mPoet Load (0.3ms)[0m   [0mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/index
+  [4;36;1mMovie Load (0.3ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+  [4;35;1mMovie Load (0.3ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 2) [0m
+  [4;36;1mMovie Load (0.2ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 1) [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 100ms (View: 12, DB: 2) | 200 OK [http://0.0.0.0/haikus]
+
+
+Processing HaikusController#edit (for 127.0.0.1 at 2009-08-13 01:22:44) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mHaiku Load (0.3ms)[0m   [0mSELECT * FROM "haikus" WHERE ("haikus"."id" = 2) [0m
+  [4;36;1mPoet Load (0.2ms)[0m   [0;1mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/edit
+  [4;35;1mMovie Load (0.3ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 2) [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 25ms (View: 11, DB: 1) | 200 OK [http://0.0.0.0/haikus/2/edit]
+
+
+Processing HaikusController#show (for 127.0.0.1 at 2009-08-13 01:22:52) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mHaiku Load (0.3ms)[0m   [0;1mSELECT * FROM "haikus" WHERE ("haikus"."id" = 2) [0m
+  [4;35;1mPoet Load (0.2ms)[0m   [0mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/show
+  [4;36;1mMovie Load (0.3ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 2) [0m
+Rendered shared/_sidebar (0.5ms)
+Completed in 21ms (View: 8, DB: 1) | 200 OK [http://0.0.0.0/haikus/2]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-08-13 01:22:54) [GET]
+  [4;35;1mHaiku Load (0.6ms)[0m   [0mSELECT * FROM "haikus" ORDER BY haikus.id DESC LIMIT 1[0m
+  [4;36;1mPoet Load (0.2ms)[0m   [0;1mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/home
+Rendering home/index
+  [4;35;1mMovie Load (0.4ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "movies" [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "poets" [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 24ms (View: 10, DB: 2) | 200 OK [http://0.0.0.0/]
+
+
+Processing HaikusController#index (for 127.0.0.1 at 2009-08-13 01:22:56) [GET]
+  [4;36;1mHaiku Load (1.4ms)[0m   [0;1mSELECT * FROM "haikus" ORDER BY created_at DESC[0m
+  [4;35;1mPoet Load (0.2ms)[0m   [0mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/index
+  [4;36;1mMovie Load (0.3ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+  [4;35;1mMovie Load (0.3ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 2) [0m
+  [4;36;1mMovie Load (0.2ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 1) [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 25ms (View: 11, DB: 2) | 200 OK [http://0.0.0.0/haikus]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-08-13 01:22:58) [GET]
+  [4;35;1mHaiku Load (0.7ms)[0m   [0mSELECT * FROM "haikus" ORDER BY haikus.id DESC LIMIT 1[0m
+  [4;36;1mPoet Load (0.2ms)[0m   [0;1mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/home
+Rendering home/index
+  [4;35;1mMovie Load (0.3ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "movies" [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "poets" [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 24ms (View: 11, DB: 2) | 200 OK [http://0.0.0.0/]
+
+
+Processing HaikusController#index (for 127.0.0.1 at 2009-08-13 01:23:02) [GET]
+  [4;36;1mHaiku Load (1.3ms)[0m   [0;1mSELECT * FROM "haikus" ORDER BY created_at DESC[0m
+  [4;35;1mPoet Load (0.2ms)[0m   [0mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/haikus
+Rendering haikus/index
+  [4;36;1mMovie Load (0.3ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+  [4;35;1mMovie Load (0.3ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 2) [0m
+  [4;36;1mMovie Load (0.2ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 1) [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 25ms (View: 11, DB: 2) | 200 OK [http://0.0.0.0/haikus]
+
+
+Processing PoetsController#show (for 127.0.0.1 at 2009-08-13 01:23:05) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mHaiku Load (1.4ms)[0m   [0mSELECT * FROM "haikus" WHERE ("haikus"."poet_id" = '1') ORDER BY created_at DESC [0m
+  [4;36;1mPoet Load (0.3ms)[0m   [0;1mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+Rendering template within layouts/poets
+Rendering poets/show
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "poets" WHERE ("poets"."id" = 1) [0m
+  [4;36;1mMovie Load (0.4ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 8) [0m
+  [4;35;1mMovie Load (0.3ms)[0m   [0mSELECT * FROM "movies" WHERE ("movies"."id" = 2) [0m
+  [4;36;1mMovie Load (0.2ms)[0m   [0;1mSELECT * FROM "movies" WHERE ("movies"."id" = 1) [0m
+Rendered shared/_sidebar (0.4ms)
+Completed in 28ms (View: 13, DB: 3) | 200 OK [http://0.0.0.0/poets/1]

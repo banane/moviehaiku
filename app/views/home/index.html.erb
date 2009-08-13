@@ -1,11 +1,13 @@
 
 
           <h1><%= link_to "Haikus", :controller=> "haikus" %></h1>
+          Latest haiku:
 
 <div id="movie image" style="text-align:right;float:right;border:1px solid gray;padding:5px;margin:5px;">
   
  <%= link_to image_tag(@haiku.movie.img_url, :border=>0), :controller=>"haikus", :action=>"show", :id=>@haiku.id  %>
 </div>
+
 <blockquote>
 <%=h @haiku.line1%><br />
 <%=h @haiku.line2%><br />
@@ -13,15 +15,10 @@
 -- by <%=h @haiku.poet.name %>
 </blockquote>
          
-          <h1><%= link_to "Movies", :controller=> "movies" %></h1>
+<h1><%= link_to "Movies", :controller=> "movies" %></h1>
          
-  			<ul>
-          	
-          	</ul>
-          <h1><%= link_to "Poets", :controller=> "poets" %></h1>
-          	<ul>
-          	
-          	</ul>
-          		
-        </div>
-      </div
+	<%= Movie.count%> movies so far! <% link_to "Add one", :controller=>"movies", :action=>"new" %>
+<h1><%= link_to "Poets", :controller=> "poets" %></h1>
+          <%= Poet.count %> poets are here! <br />
+          <%= link_to "Come on in", :controller=>"poets", :action=>"new" %>
+        

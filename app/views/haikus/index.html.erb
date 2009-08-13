@@ -17,7 +17,9 @@
   	 <br />
   	 -- by <%= link_to haiku.poet.name, :controller=>"poets", :action=>"show", :id=>haiku.poet_id  %>
 </blockquote>  	 
+(<%= link_to "edit", :controller=>"haikus", :action=>"edit", :id=>haiku.id %>)
 </div>
+
 <% end %>
 
 <%= link_to 'New haiku', new_haiku_path %>

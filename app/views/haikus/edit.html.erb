@@ -2,11 +2,12 @@
 
 <% form_for(@haiku) do |f| %>
   <%= f.error_messages %>
-
-  <p>
-    <%= f.label :poet %><br />
-    <%= f.text_field :poet %>
+ <p>
+    Poet Name: <br />
+    <%=  @haiku.poet.name %>
   </p>
+ 
+ 
   <p>
     <%= f.label :line1 %><br />
     <%= f.text_field :line1 %>
@@ -19,13 +20,10 @@
     <%= f.label :line3 %><br />
     <%= f.text_field :line3 %>
   </p>
+ 
   <p>
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </p>
-  <p>
-    <%= f.label :movie %><br />
-    <%= f.text_field :movie %>
+    Movie:<br />
+    <%= @haiku.movie.name %>
   </p>
   <p>
     <%= f.submit 'Update' %>
